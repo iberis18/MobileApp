@@ -15,7 +15,7 @@
         android:layout_height="match_parent"    
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/triangle1"
+        android:src="@drawable/triangle"
         android:id="@+id/start" />
 
     <GridLayout
@@ -59,7 +59,8 @@
             android:columnCount="1"
             android:rowCount="3"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="300px" >
 
 
             <Button
@@ -72,7 +73,7 @@
                 android:textSize="16sp"
                 android:paddingVertical="40px"
                 android:textStyle="bold"
-                android:layout_marginTop="100px" />
+                android:layout_marginTop="60px" />
 
 
             <Button

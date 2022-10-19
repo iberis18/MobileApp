@@ -1,4 +1,4 @@
-﻿# MobileApp
+# MobileApp
 
 Цель разработки: разработать мобильное приложение для тестирования. 
 
@@ -37,8 +37,3 @@
 ![image](https://user-images.githubusercontent.com/94007338/195097825-4e81e826-0ee5-45e8-8cb5-fe0556c7fead.png)
 ![image](https://user-images.githubusercontent.com/94007338/195097861-1fdb1d3b-3151-4e84-9543-94cec4c959fc.png)
 ![image](https://user-images.githubusercontent.com/94007338/195097871-3689faae-ff7e-4aea-ba42-d85d8175e917.png)
-
-
-
-
-

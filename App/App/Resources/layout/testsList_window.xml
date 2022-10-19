@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2F2FA2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"    
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/triangle"
+        android:id="@+id/start" />
+
+
+
+    <ScrollView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView1">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="1"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            
+            <ImageButton
+                android:src="@drawable/backbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:id="@+id/imageButton1" />
+            
+            <TextView
+                android:text="@string/testsList"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/textView1" />
+            
+            <ImageView
+                android:layout_marginTop="100px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/thinking"
+                android:id="@+id/ImageView1"/>
+
+            <TextView
+                android:text="@string/intellect"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/textView2" />
+
+
+
+            <ImageView
+                android:layout_marginTop="100px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/psyhco"
+                android:id="@+id/ImageView2"/>
+
+            <TextView
+                android:text="@string/psycho"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/textView3" />
+
+
+
+            <ImageView
+                android:layout_marginTop="100px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/work"
+                android:id="@+id/ImageView3"/>
+
+            <TextView
+                android:text="@string/work"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/textView4" />
+            
+            <ImageView
+                android:layout_marginTop="100px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/personal"
+                android:id="@+id/ImageView4"/>
+
+            <TextView
+                android:text="@string/personal"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="200px"
+                android:id="@+id/textView5" />
+
+        </GridLayout> 
+
+    </ScrollView>
+
+</RelativeLayout>

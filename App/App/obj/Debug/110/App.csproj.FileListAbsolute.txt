@@ -615,4 +615,14 @@ D:\mainRepo\App\App\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 D:\mainRepo\App\App\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 D:\mainRepo\App\App\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
 D:\mainRepo\App\App\obj\Debug\110\res\drawable\start.png
-D:\mainRepo\App\App\obj\Debug\110\res\drawable\triangle1.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\triangle.png
+D:\mainRepo\App\App\obj\Debug\110\res\layout\main_window.xml
+D:\mainRepo\App\App\obj\Debug\110\res\layout\registration_window.xml
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\backbutton.png
+D:\mainRepo\App\App\obj\Debug\110\res\layout\login_window.xml
+D:\mainRepo\App\App\obj\Debug\110\res\layout\testslist_window.xml
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\thinking.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\psyhco.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\work.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\personal.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\thinkinglarge.png

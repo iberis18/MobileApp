@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MobileApp\\App\\App\\App.csproj": {}
+    "D:\\mainRepo\\App\\App\\App.csproj": {}
   },
   "projects": {
-    "D:\\MobileApp\\App\\App\\App.csproj": {
+    "D:\\mainRepo\\App\\App\\App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MobileApp\\App\\App\\App.csproj",
+        "projectUniqueName": "D:\\mainRepo\\App\\App\\App.csproj",
         "projectName": "App",
-        "projectPath": "D:\\MobileApp\\App\\App\\App.csproj",
+        "projectPath": "D:\\mainRepo\\App\\App\\App.csproj",
         "packagesPath": "C:\\Users\\air18\\.nuget\\packages\\",
-        "outputPath": "D:\\MobileApp\\App\\App\\obj\\",
+        "outputPath": "D:\\mainRepo\\App\\App\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

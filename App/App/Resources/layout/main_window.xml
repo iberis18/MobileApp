@@ -61,8 +61,9 @@
 
 
             <Button
-                android:text="@string/login"
-                android:id="@+id/button1"
+                android:text="@string/goToTests"
+                android:id="@+id/button1MainWindow"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F64C72"
@@ -75,7 +76,8 @@
 
             <Button
                 android:text="@string/results"
-                android:id="@+id/button2"
+                android:id="@+id/button2MainWindow"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
@@ -85,9 +87,11 @@
                 android:textStyle="bold"
                 android:backgroundTint="#99738E"
                 android:layout_marginTop="60px" />
+
             <Button
                 android:text="@string/exercises"
-                android:id="@+id/button3"
+                android:id="@+id/button3MainWindow"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -98,7 +102,8 @@
                 android:backgroundTint="#99738E" />
             <Button
                 android:text="@string/help"
-                android:id="@+id/button4"
+                android:id="@+id/button4MainWindow"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
@@ -109,7 +114,8 @@
                 android:backgroundTint="#99738E" />
             <Button
                 android:text="@string/logout"
-                android:id="@+id/button5"
+                android:id="@+id/button5MainWindow"
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"

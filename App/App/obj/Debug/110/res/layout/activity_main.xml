@@ -10,7 +10,13 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </com.google.android.material.appbar.AppBarLayout>--><include layout="@layout/content_main" /><!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+    </com.google.android.material.appbar.AppBarLayout>--><include android:id="@+id/includeContentMain" layout="@layout/content_main" /><!--<include android:id="@+id/includeContentMain" layout="@layout/content_main" />
+    <include android:id="@+id/includeLoginWindow" layout="@layout/login_window" />
+    --><!--<ViewStub
+        android:id="@+id/layout_stub"
+        android:inflatedId="@+id/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>--><!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

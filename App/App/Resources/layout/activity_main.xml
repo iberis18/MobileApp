@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +19,17 @@
 
     </com.google.android.material.appbar.AppBarLayout>-->
 
-    <include layout="@layout/content_main" />
+    <include android:id="@+id/includeContentMain" layout="@layout/content_main" />
+
+    <!--<include android:id="@+id/includeContentMain" layout="@layout/content_main" />
+    <include android:id="@+id/includeLoginWindow" layout="@layout/login_window" />
+    -->
+
+    <!--<ViewStub
+        android:id="@+id/layout_stub"
+        android:inflatedId="@+id/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>-->
 
     <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -28,5 +38,4 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />-->
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

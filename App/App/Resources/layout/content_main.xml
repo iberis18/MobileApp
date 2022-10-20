@@ -16,7 +16,7 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/triangle"
-        android:id="@+id/start" />
+        android:id="@+id/imageView1" />
 
     <GridLayout
         android:minWidth="25px"
@@ -65,7 +65,7 @@
 
             <Button
                 android:text="@string/login"
-                android:id="@+id/button1"
+                android:id="@+id/button1ContentMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#F64C72"
@@ -78,7 +78,7 @@
 
             <Button
                 android:text="@string/registration"
-                android:id="@+id/button2"
+                android:id="@+id/button2ContentMain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

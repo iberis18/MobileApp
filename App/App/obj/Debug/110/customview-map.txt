@@ -68,3 +68,4 @@ TextView;obj\Debug\110\res\layout\login_window.xml
 TextView;obj\Debug\110\res\layout\main_window.xml
 TextView;obj\Debug\110\res\layout\registration_window.xml
 TextView;obj\Debug\110\res\layout\testslist_window.xml
+ViewStub;obj\Debug\110\res\layout\activity_main.xml

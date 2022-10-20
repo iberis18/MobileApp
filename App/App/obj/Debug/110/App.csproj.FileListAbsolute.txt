@@ -626,3 +626,12 @@ D:\mainRepo\App\App\obj\Debug\110\res\drawable\psyhco.png
 D:\mainRepo\App\App\obj\Debug\110\res\drawable\work.png
 D:\mainRepo\App\App\obj\Debug\110\res\drawable\personal.png
 D:\mainRepo\App\App\obj\Debug\110\res\drawable\thinkinglarge.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\thinkingex.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\memoriesex.png
+D:\mainRepo\App\App\obj\Debug\110\res\drawable\attentionex.png
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\LoginActivity.java
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\MainWimdowActivity.java
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\RegistrationActivity.java
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\TestsListActivity.java
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\MainWindowActivity.java
+D:\mainRepo\App\App\obj\Debug\110\android\src\crc64a27fdd34899c7945\RemindePasswordActivity.java

@@ -66,6 +66,9 @@
             android:layout_marginLeft="40px"
             android:layout_marginRight="40px"
             android:textSize="25sp"
+            android:paddingVertical="5px"
+            android:paddingHorizontal="20px"
+            android:hint="@string/placeholderEmail"
             android:background="@android:color/white"
             android:id="@+id/editText1" />
 
@@ -88,6 +91,9 @@
             android:layout_marginLeft="40px"
             android:layout_marginRight="40px"
             android:textSize="25sp"
+            android:paddingVertical="5px"
+            android:paddingHorizontal="20px"
+            android:hint="@string/placeholderPassword"
             android:background="@android:color/white"
             android:id="@+id/editText2" />
 
@@ -110,6 +116,9 @@
             android:layout_marginLeft="40px"
             android:layout_marginRight="40px"
             android:textSize="25sp"
+            android:paddingVertical="5px"
+            android:paddingHorizontal="20px"
+            android:hint="@string/placeholderPassword"
             android:background="@android:color/white"
             android:id="@+id/editText3" />
 
@@ -118,6 +127,7 @@
         <Button
             android:text="@string/registration"
             android:id="@+id/button1"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#F64C72"

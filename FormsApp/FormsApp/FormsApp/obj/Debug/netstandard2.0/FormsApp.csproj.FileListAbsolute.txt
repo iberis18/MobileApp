@@ -1,0 +1,15 @@
+D:\mainRepo\FormsApp\FormsApp\FormsApp\bin\Debug\netstandard2.0\FormsApp.deps.json
+D:\mainRepo\FormsApp\FormsApp\FormsApp\bin\Debug\netstandard2.0\FormsApp.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp\bin\Debug\netstandard2.0\ref\FormsApp.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp\bin\Debug\netstandard2.0\FormsApp.pdb
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.csproj.AssemblyReference.cache
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.AssemblyInfoInputs.cache
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.AssemblyInfo.cs
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.csproj.CoreCompileInputs.cache
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\XamlC.stamp
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\ref\FormsApp.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.pdb

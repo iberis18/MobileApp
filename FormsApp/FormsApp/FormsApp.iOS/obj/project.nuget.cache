@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "y2krKB/ADw8lcFrZ8748z2QxKJSOzo/3qCn9YCuIBe/awU7K793UPlZoHpYppo7lGxsi+/qawQXCr2DcKAxpGw==",
+  "dgSpecHash": "Vd31ghBiLyQS+hUq0n5UIgyH31Y9pcRn2OGGxv59p+TNB0E46ipXdFWgdnxSTbO6+U4+IDQC7yfPs4gQ62gV4g==",
   "success": true,
   "projectFilePath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.iOS\\FormsApp.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\air18\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\air18\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\air18\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"

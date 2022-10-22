@@ -574,3 +574,9 @@ D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_ConvertResou
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_GenerateJavaStubs.stamp
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_GeneratePackageManagerJava.stamp
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\icon.png
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\backbutton.png
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Newtonsoft.Json.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Microsoft.CSharp.dll
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Microsoft.CSharp.pdb
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\json.json

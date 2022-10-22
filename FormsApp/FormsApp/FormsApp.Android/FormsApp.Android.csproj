@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -54,6 +54,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -66,6 +72,7 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\json.json" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -84,13 +91,16 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\FormsApp\FormsApp.csproj">
       <Project>{12FD5CF6-F962-49E7-80C4-E519E6572D74}</Project>
       <Name>FormsApp</Name>
     </ProjectReference>
   </ItemGroup>
- <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\backButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -5,21 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using FormsApp.view_model;
+using FormsApp.ViewModel;
 
-namespace FormsApp
+namespace FormsApp.View
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new PhoneViewModel
-            {
-                Title = "iPhone 7",
-                Company = "Apple",
-                Price = 52000
-            };
+            this.BindingContext = new MainPageViewModel() { Navigation = this.Navigation };
+            NavigationPage.SetHasNavigationBar(this, false);
         }
     }
 }

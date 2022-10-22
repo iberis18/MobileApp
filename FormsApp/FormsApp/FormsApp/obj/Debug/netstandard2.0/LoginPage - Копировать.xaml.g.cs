@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FormsApp.MainPage.xaml", "MainPage.xaml", typeof(global::FormsApp.MainPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FormsApp.LoginPage - Копировать.xaml", "LoginPage - Копировать.xaml", typeof(global::FormsApp.LoginPage))]
 
 namespace FormsApp {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("MainPage.xaml")]
-    public partial class MainPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("LoginPage - Копировать.xaml")]
+    public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(LoginPage));
         }
     }
 }

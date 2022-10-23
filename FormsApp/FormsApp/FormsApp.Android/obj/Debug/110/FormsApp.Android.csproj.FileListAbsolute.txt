@@ -579,4 +579,7 @@ D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\backbu
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Newtonsoft.Json.dll
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Microsoft.CSharp.dll
 D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\android\assets\Microsoft.CSharp.pdb
-D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\json.json
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\person.png
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\intellect.png
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\work.png
+D:\mainRepo\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\psycho.png

@@ -29,7 +29,7 @@ namespace FormsApp.ViewModel
         public void Login()
         {
             //проверка правильности имени пользователя и пароля
-
+            //await DisplayAlert("Неудача!", "Неправильное имя пользователя или пароль! Попробуйте еще раз!", "OK");
             Navigation.PushAsync(new MenuPage());
         }
         public void RecoveryPassword()

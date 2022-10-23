@@ -11698,7 +11698,7 @@ namespace FormsApp.Droid
 			public const int ic_mtrl_chip_close_circle = 2131165296;
 			
 			// aapt resource value: 0x7F070072
-			public const int json = 2131165298;
+			public const int intellect = 2131165298;
 			
 			// aapt resource value: 0x7F070073
 			public const int material_ic_calendar_black_24dp = 2131165299;
@@ -11788,13 +11788,22 @@ namespace FormsApp.Droid
 			public const int notify_panel_notification_icon_bg = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int test_custom_background = 2131165328;
+			public const int person = 2131165328;
 			
 			// aapt resource value: 0x7F070091
-			public const int tooltip_frame_dark = 2131165329;
+			public const int psycho = 2131165329;
 			
 			// aapt resource value: 0x7F070092
-			public const int tooltip_frame_light = 2131165330;
+			public const int test_custom_background = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int tooltip_frame_dark = 2131165331;
+			
+			// aapt resource value: 0x7F070094
+			public const int tooltip_frame_light = 2131165332;
+			
+			// aapt resource value: 0x7F070095
+			public const int work = 2131165333;
 			
 			static Drawable()
 			{

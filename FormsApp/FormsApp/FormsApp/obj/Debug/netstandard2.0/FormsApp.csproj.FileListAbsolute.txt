@@ -19,3 +19,4 @@ D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\RecoveryPas
 D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\RegistrationPage.xaml.g.cs
 D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\SuccessRecoveryPasswordPage.xaml.g.cs
 D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\CategoriesPage.xaml.g.cs
+D:\mainRepo\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\TestsListByCategoryPage.xaml.g.cs

@@ -14,7 +14,7 @@ namespace FormsApp.View
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainPageViewModel() { Navigation = this.Navigation };
+            this.BindingContext = new MainViewModel() { Navigation = this.Navigation };
             NavigationPage.SetHasNavigationBar(this, false);
         }
     }

@@ -22,7 +22,7 @@ namespace FormsApp.Model
             string json = (File.Exists(path)) ? File.ReadAllText(path) : "";
             return json;
         }
-        public List<Category> AllCategories
+        public List<Category> GetAllCategories
         {
             get { return allCategories; }
         }

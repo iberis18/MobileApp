@@ -14,7 +14,8 @@ namespace FormsApp.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        CategoryList allCategories = new CategoryList();
+        private CategoryList allCategories = new CategoryList();
+        private Category selectedCategory = null;
 
         public ICommand GoToCategoryCommand { get; }
         public ICommand BackCommand { get; }
@@ -35,6 +36,25 @@ namespace FormsApp.ViewModel
         public void GoToCategory()
         {
 
+        }
+
+        public List<Category> AllCategories
+        {
+            get { return allCategories.GetAllCategories; }
+        }
+        public Category SelectedCategory
+        {
+            get { return selectedCategory; }
+            set
+            {
+                if (selectedCategory != value)
+                {
+                    Category tempCategory = value;
+                    selectedCategory = null;
+                    OnPropertyChanged("SelectedCategory");
+                    Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
+                }
+            }
         }
 
         protected void OnPropertyChanged(string propName)

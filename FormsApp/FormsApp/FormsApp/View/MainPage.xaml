@@ -7,7 +7,7 @@
     <Grid>
         <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z"/>
         <StackLayout>
-            <Image Margin="30" Source="icon.png" />
+            <Image Margin="100,50,100,20" Source="icon.png" />
             <Label Text="Мобильный психотест" TextColor="White" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
             <StackLayout Padding="100,50,100,0">
                 <Button Text="Вход" Command="{Binding LoginCommand}" BackgroundColor="#F64C72" TextColor="White" FontSize="20" FontAttributes="Bold"/>

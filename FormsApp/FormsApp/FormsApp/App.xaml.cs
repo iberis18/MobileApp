@@ -12,10 +12,8 @@ namespace FormsApp
         {
             InitializeComponent();
 
-            //string s = "{\"Categories\":[{\"Name\":\"Интеллектуальные\",\"Image\":\"intellect.png\"},{\"Name\":\"Психологичсекие\",\"Image\":\"psycho.png\"},{\"Name\":\"Профессиональные\",\"Image\":\"work.png\"},{\"Name\":\"Личностные\",\"Image\":\"person.png\"}]}";
-            //SaveJSON(s);
-            //s = GetJSON();
-
+            string s = "{\"Categories\":[{\"Name\":\"Интеллектуальные\",\"Image\":\"intellect.png\"},{\"Name\":\"Психологические\",\"Image\":\"psycho.png\"},{\"Name\":\"Профессиональные\",\"Image\":\"work.png\"},{\"Name\":\"Личностные\",\"Image\":\"person.png\"}],\"Tests\":[{\"Category\":\"Интеллектуальные\",\"Image\":\"intellect.png\",\"Tests\":[\"Тест АйзенканаIQ\",\"Тест IQ для детей\",\"Еще один тест\",\"Ну и еще один\",\"И этот добавим\"]},{\"Category\":\"Психологические\",\"Image\":\"psycho.png\",\"Tests\":[\"Чернильные пятна Роршарха\",\"Уровень стресса\",\"Еще один тест\",\"Ну и еще один\",\"И этот добавим\"]},{\"Category\":\"Профессиональные\",\"Image\":\"work.png\",\"Tests\":[\"Определение профориентации\",\"Склонность к профессии\",\"Еще один тест\",\"Ну и еще один\",\"И этот добавим\"]},{\"Category\":\"Личностные\",\"Image\":\"person.png\",\"Tests\":[\"Лидерские качества\",\"Тип мышления\",\"Тест на темперамент\",\"Еще один тест\",\"Ну и еще один\",\"И этот добавим\"]}]}";
+            SaveJSON(s);
 
             NavigationPage.SetHasNavigationBar(this, false);
             MainPage = new NavigationPage(new View.MainPage());

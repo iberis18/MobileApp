@@ -8,21 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FormsApp.View.CategoriesPage.xaml", "View/CategoriesPage.xaml", typeof(global::FormsApp.View.CategoriesPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("FormsApp.View.ExerciseCategoriesPage.xaml", "View/ExerciseCategoriesPage.xaml", typeof(global::FormsApp.View.ExerciseCategoriesPage))]
 
 namespace FormsApp.View {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("View\\CategoriesPage.xaml")]
-    public partial class CategoriesPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("View\\ExerciseCategoriesPage.xaml")]
+    public partial class ExerciseCategoriesPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.ListView categoriesList;
+        private global::Xamarin.Forms.ListView testsList;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CategoriesPage));
-            categoriesList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "categoriesList");
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ExerciseCategoriesPage));
+            testsList = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "testsList");
         }
     }
 }

@@ -13,7 +13,6 @@ namespace FormsApp.ViewModel
     class MenuViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        //private Phone phone;
 
         public ICommand LogOutCommand { get; }
         public ICommand GoToTestsCommand { get; }
@@ -38,16 +37,19 @@ namespace FormsApp.ViewModel
         }
         public void GoToTests()
         {
-            Navigation.PushAsync(new CategoriesPage());
+            Navigation.PushAsync(new TestCategoriesPage());
         }
         public void GoToExercises()
         {
+            Navigation.PushAsync(new ExerciseCategoriesPage());
         }
         public void GoToResults()
         {
+            Navigation.PushAsync(new ResultsPage());
         }
         public void GoToHelp()
         {
+            Navigation.PushAsync(new HelpPage());
         }
         protected void OnPropertyChanged(string propName)
         {

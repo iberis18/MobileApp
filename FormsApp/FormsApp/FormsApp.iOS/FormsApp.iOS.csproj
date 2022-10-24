@@ -140,19 +140,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <BundleResource Include="Resources\attention.png" />
+  </ItemGroup>
+  <ItemGroup>
     <BundleResource Include="Resources\backButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\intellect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\memory.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\person.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\work.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\psycho.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\intellect.png" />
+    <BundleResource Include="Resources\thinking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\work.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />

@@ -11,13 +11,13 @@ using Xamarin.Forms.Xaml;
 namespace FormsApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoriesPage : ContentPage
+    public partial class ResultsPage : ContentPage
     {
-        public CategoriesPage()
+        public ResultsPage()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            this.BindingContext = new CategoriesViewModel() { Navigation = this.Navigation };
+            this.BindingContext = new ResultsViewModel() { Navigation = this.Navigation };
         }
     }
 }

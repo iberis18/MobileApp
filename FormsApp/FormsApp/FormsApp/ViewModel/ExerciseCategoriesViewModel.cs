@@ -10,21 +10,19 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class CategoriesViewModel : INotifyPropertyChanged
+    class ExerciseCategoriesViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
         private CategoryList allCategories = new CategoryList();
         private Category selectedCategory = null;
 
-        public ICommand GoToCategoryCommand { get; }
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
 
-        public CategoriesViewModel()
+        public ExerciseCategoriesViewModel()
         {
-            GoToCategoryCommand = new Command(GoToCategory);
             BackCommand = new Command(Back);
         }
 
@@ -33,14 +31,9 @@ namespace FormsApp.ViewModel
             Navigation.PopAsync();
         }
 
-        public void GoToCategory()
-        {
-
-        }
-
         public List<Category> AllCategories
         {
-            get { return allCategories.GetAllCategories; }
+            get { return allCategories.GetAllExerciseCategories; }
         }
         public Category SelectedCategory
         {
@@ -52,7 +45,7 @@ namespace FormsApp.ViewModel
                     Category tempCategory = value;
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
+                    //Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
                 }
             }
         }

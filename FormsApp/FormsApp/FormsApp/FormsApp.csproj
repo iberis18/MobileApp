@@ -18,13 +18,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="View\TestCategoriesPage.xaml.cs">
+      <DependentUpon>TestCategoriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\ExerciseCategoriesPage.xaml.cs">
+      <DependentUpon>ExerciseCategoriesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="View\TestsListByCategoryPage.xaml.cs">
       <DependentUpon>TestsListByCategoryPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\CategoriesPage.xaml">
+    <EmbeddedResource Update="View\TestCategoriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ExerciseCategoriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\HelpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\LoginPage.xaml">
@@ -43,6 +55,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\RegistrationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\ResultsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="View\SuccessRecoveryPasswordPage.xaml">

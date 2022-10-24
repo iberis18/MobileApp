@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsApp.View.HelpPage"
+             BackgroundColor="#2F2FA2">
+    <ContentPage.Content>
+        <Grid>
+            <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z"/>
+            <StackLayout>
+                <ImageButton Source="backButton" Command="{Binding BackCommand}" BackgroundColor="Transparent" HorizontalOptions="Start" Margin="20,20,0,10"/>
+                <Label Text="Помощь" TextColor="White" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                <Label TextColor="White" FontSize="20" Text="Данное приложение разработано для тестирования различных личностных показателей." Padding="15,20,15, 0"/>
+                <Label TextColor="White" FontSize="20"  Text="После прохождения различных тестов постепенно будет формироваться статистика с рекомендациями для улучшения результатов и индивидуально подобранными упражнениями." Padding="15,15,15,0"/>
+                <Label TextColor="White" FontSize="20"  Text="Все упражнения вы можете посмотреть в специальном разделе." Padding="15"/>
+                <StackLayout Padding="70,50,70,0">
+                    <Button Text="В меню" Command="{Binding GoToMenuCommand}" BackgroundColor="#F64C72" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                </StackLayout>
+
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

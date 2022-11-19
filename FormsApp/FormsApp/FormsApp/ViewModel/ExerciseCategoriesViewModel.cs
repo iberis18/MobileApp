@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using FormsApp.Model;
-using FormsApp.View;
 using System.Windows.Input;
+using FormsApp.Model;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class ExerciseCategoriesViewModel : INotifyPropertyChanged
+    internal class ExerciseCategoriesViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private CategoryList allCategories = new CategoryList();
-        private Category selectedCategory = null;
-
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
+        private readonly CategoryList allCategories = new CategoryList();
+        private Category selectedCategory;
 
 
         public ExerciseCategoriesViewModel()
@@ -26,28 +17,31 @@ namespace FormsApp.ViewModel
             BackCommand = new Command(Back);
         }
 
-        public void Back()
-        {
-            Navigation.PopAsync();
-        }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
 
-        public List<Category> AllCategories
-        {
-            get { return allCategories.GetAllExerciseCategories; }
-        }
+        public List<Category> AllCategories => allCategories.GetAllExerciseCategories;
+
         public Category SelectedCategory
         {
-            get { return selectedCategory; }
+            get => selectedCategory;
             set
             {
                 if (selectedCategory != value)
                 {
-                    Category tempCategory = value;
+                    var tempCategory = value;
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
                     //Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
                 }
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Back()
+        {
+            Navigation.PopAsync();
         }
 
         protected void OnPropertyChanged(string propName)

@@ -1187,11 +1187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.iOS\\FormsApp.iOS.csproj",
+      "projectUniqueName": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.iOS\\FormsApp.iOS.csproj",
       "projectName": "FormsApp.iOS",
-      "projectPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.iOS\\FormsApp.iOS.csproj",
+      "projectPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.iOS\\FormsApp.iOS.csproj",
       "packagesPath": "C:\\Users\\air18\\.nuget\\packages\\",
-      "outputPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.iOS\\obj\\",
+      "outputPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1212,8 +1212,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj": {
-              "projectPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj"
+            "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj": {
+              "projectPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj"
             }
           }
         }

@@ -1,38 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Linq;
-using FormsApp.Model;
-using FormsApp.View;
+﻿using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.View;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class MainViewModel: INotifyPropertyChanged
+    internal class MainViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        //private Phone phone;
-
-        public ICommand LoginCommand { get; }
-        public ICommand RegistrationCommand { get; }
-        public INavigation Navigation { get; set; }
-
         public MainViewModel()
         {
             LoginCommand = new Command(Login);
             RegistrationCommand = new Command(Registration);
         }
+        //private Phone phone;
+
+        public ICommand LoginCommand { get; }
+        public ICommand RegistrationCommand { get; }
+        public INavigation Navigation { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Login()
         {
             Navigation.PushAsync(new LoginPage());
         }
+
         public void Registration()
         {
             Navigation.PushAsync(new RegistrationPage());
         }
+
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)

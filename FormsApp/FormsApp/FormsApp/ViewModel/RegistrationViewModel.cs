@@ -1,43 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Input;
-using Xamarin.Forms;
-using System.Linq;
-using FormsApp.Model;
 using FormsApp.View;
+using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class RegistrationViewModel : INotifyPropertyChanged
+    internal class RegistrationViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private string email = "", password = "", repeatPassword = "";
-
-        public ICommand RegistrationCommand { get; }
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
 
         public RegistrationViewModel()
         {
             RegistrationCommand = new Command(Registration);
             BackCommand = new Command(Back);
         }
-         
-        public void Registration()
-        {
-            //Добавление нового пользователя
 
-            Navigation.PushAsync(new MainPage());
-        }
-        public void Back()
-        {
-            Navigation.PopAsync();
-        }
+        public ICommand RegistrationCommand { get; }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
+
         public string Email
         {
-            get { return email; }
+            get => email;
             set
             {
                 if (email != value)
@@ -47,9 +31,10 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+
         public string Password
         {
-            get { return password; }
+            get => password;
             set
             {
                 if (password != value)
@@ -59,9 +44,10 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+
         public string RepeatPassword
         {
-            get { return repeatPassword; }
+            get => repeatPassword;
             set
             {
                 if (repeatPassword != value)
@@ -71,6 +57,21 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Registration()
+        {
+            //Добавление нового пользователя
+
+            Navigation.PushAsync(new MainPage());
+        }
+
+        public void Back()
+        {
+            Navigation.PopAsync();
+        }
+
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)

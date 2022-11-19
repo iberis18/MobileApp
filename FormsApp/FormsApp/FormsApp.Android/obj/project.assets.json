@@ -2269,11 +2269,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.Android\\FormsApp.Android.csproj",
+      "projectUniqueName": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.Android\\FormsApp.Android.csproj",
       "projectName": "FormsApp.Android",
-      "projectPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.Android\\FormsApp.Android.csproj",
+      "projectPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.Android\\FormsApp.Android.csproj",
       "packagesPath": "C:\\Users\\air18\\.nuget\\packages\\",
-      "outputPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp.Android\\obj\\",
+      "outputPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2294,8 +2294,8 @@
       "frameworks": {
         "monoandroid11.0": {
           "projectReferences": {
-            "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj": {
-              "projectPath": "D:\\mainRepo\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj"
+            "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj": {
+              "projectPath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj"
             }
           }
         }

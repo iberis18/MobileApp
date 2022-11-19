@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows.Input;
-using Xamarin.Forms;
-using System.ComponentModel;
-using FormsApp.Model;
 using FormsApp.View;
+using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class SuccessRecoveryPasswordViewModel : INotifyPropertyChanged
+    internal class SuccessRecoveryPasswordViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand GoToMenuCommand { get; }
-        public INavigation Navigation { get; set; }
-
         public SuccessRecoveryPasswordViewModel()
         {
             GoToMenuCommand = new Command(GoToMenu);
         }
+
+        public ICommand GoToMenuCommand { get; }
+        public INavigation Navigation { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void GoToMenu()
         {

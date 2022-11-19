@@ -1,28 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
-using System.Windows.Input;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
-using System.Threading.Tasks;
-using Xamarin.Forms.Xaml;
 
 namespace FormsApp.ViewModel
 {
-    class TestsListByCategoryViewModel : INotifyPropertyChanged
+    internal class TestsListByCategoryViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private readonly TestsListByCategory allTestsByCategory;
         private string categoryName;
-
-        TestsListByCategory allTestsByCategory;
-
-        public ICommand GoToTestCommand { get; }
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
+        private string selectedTest;
 
         public TestsListByCategoryViewModel(string categoryName)
         {
@@ -32,6 +21,18 @@ namespace FormsApp.ViewModel
             allTestsByCategory = new TestsListByCategory(categoryName);
         }
 
+        public ICommand GoToTestCommand { get; }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
+
+        public List<string> AllTests => allTestsByCategory.GetAllTests;
+
+        public string Image => allTestsByCategory.GetCategory.Image;
+
+        public string CategoryName => allTestsByCategory.GetCategory.Name;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public void Back()
         {
             Navigation.PopAsync();
@@ -39,20 +40,19 @@ namespace FormsApp.ViewModel
 
         public void GoToTest()
         {
-
         }
 
-        public List<string> AllTests
+        public string SelectedTest
         {
-            get { return allTestsByCategory.GetAllTests; }
-        }
-        public string Image
-        {
-            get { return allTestsByCategory.GetCategory.Image; }
-        }
-        public string CategoryName
-        {
-            get { return allTestsByCategory.GetCategory.Name; }
+            get => selectedTest;
+            set
+            {
+                if (selectedTest == value) return;
+                var temp = value;
+                selectedTest = null;
+                OnPropertyChanged("SelectedTest");
+                Navigation.PushAsync(new TestPage(temp));
+            }
         }
 
         protected void OnPropertyChanged(string propName)

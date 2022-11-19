@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Windows.Input;
-using Xamarin.Forms;
-using FormsApp.Model;
 using FormsApp.View;
+using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class LoginViewModel: INotifyPropertyChanged
+    internal class LoginViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private string email = "", password = "";
-
-        public ICommand LoginCommand { get; }
-        public ICommand RecoveryPasswordCommand { get; }
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
 
         public LoginViewModel()
         {
@@ -26,23 +16,14 @@ namespace FormsApp.ViewModel
             BackCommand = new Command(Back);
         }
 
-        public void Login()
-        {
-            //проверка правильности имени пользователя и пароля
-            //await DisplayAlert("Неудача!", "Неправильное имя пользователя или пароль! Попробуйте еще раз!", "OK");
-            Navigation.PushAsync(new MenuPage());
-        }
-        public void RecoveryPassword()
-        {
-            Navigation.PushAsync(new RecoveryPasswordPage());
-        }
-        public void Back()
-        {
-            Navigation.PopAsync();
-        }
+        public ICommand LoginCommand { get; }
+        public ICommand RecoveryPasswordCommand { get; }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
+
         public string Email
         {
-            get { return email; }
+            get => email;
             set
             {
                 if (email != value)
@@ -52,9 +33,10 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+
         public string Password
         {
-            get { return password; }
+            get => password;
             set
             {
                 if (password != value)
@@ -64,6 +46,26 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Login()
+        {
+            //проверка правильности имени пользователя и пароля
+            //await DisplayAlert("Неудача!", "Неправильное имя пользователя или пароль! Попробуйте еще раз!", "OK");
+            Navigation.PushAsync(new MenuPage());
+        }
+
+        public void RecoveryPassword()
+        {
+            Navigation.PushAsync(new RecoveryPasswordPage());
+        }
+
+        public void Back()
+        {
+            Navigation.PopAsync();
+        }
+
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)

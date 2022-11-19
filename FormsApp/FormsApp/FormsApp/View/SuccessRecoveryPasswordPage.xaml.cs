@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FormsApp.ViewModel;
-
+﻿using FormsApp.ViewModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,7 +11,7 @@ namespace FormsApp.View
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            this.BindingContext = new SuccessRecoveryPasswordViewModel() { Navigation = this.Navigation };
+            BindingContext = new SuccessRecoveryPasswordViewModel { Navigation = Navigation };
         }
     }
 }

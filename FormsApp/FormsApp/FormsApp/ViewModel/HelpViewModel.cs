@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Windows.Input;
-using Xamarin.Forms;
-using System.ComponentModel;
-using FormsApp.Model;
 using FormsApp.View;
+using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class HelpViewModel : INotifyPropertyChanged
+    internal class HelpViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public ICommand GoToMenuCommand { get; }
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
-
         public HelpViewModel()
         {
             GoToMenuCommand = new Command(GoToMenu);
             BackCommand = new Command(Back);
         }
 
+        public ICommand GoToMenuCommand { get; }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public void GoToMenu()
         {
             Navigation.PushAsync(new MenuPage());
         }
+
         public void Back()
         {
             Navigation.PopAsync();

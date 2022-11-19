@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
+using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class ResultsViewModel : INotifyPropertyChanged
+    internal class ResultsViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private Result result = new Result();
-
-        public ICommand GoToExercisesCommand { get; }
-        public ICommand BackCommand { get; }
-        public INavigation Navigation { get; set; }
+        private readonly Result result = new Result();
 
 
         public ResultsViewModel()
@@ -26,6 +17,16 @@ namespace FormsApp.ViewModel
             GoToExercisesCommand = new Command(GoToExercises);
             BackCommand = new Command(Back);
         }
+
+        public ICommand GoToExercisesCommand { get; }
+        public ICommand BackCommand { get; }
+        public INavigation Navigation { get; set; }
+
+        public List<string> AllResults => result.GetResults;
+
+        public string Recommendations => result.GetRecommendations;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Back()
         {
@@ -35,15 +36,6 @@ namespace FormsApp.ViewModel
         public void GoToExercises()
         {
             Navigation.PushAsync(new ExerciseCategoriesPage());
-        }
-
-        public List<string> AllResults
-        {
-            get { return result.GetResults; }
-        }
-        public string Recommendations
-        {
-            get { return result.GetRecommendations; }
         }
 
         protected void OnPropertyChanged(string propName)

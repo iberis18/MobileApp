@@ -1,27 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.Linq;
-using FormsApp.Model;
-using FormsApp.View;
+﻿using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.View;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    class MenuViewModel : INotifyPropertyChanged
+    internal class MenuViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public ICommand LogOutCommand { get; }
-        public ICommand GoToTestsCommand { get; }
-        public ICommand GoToExercisesCommand { get; }
-        public ICommand GoToResultsCommand { get; }
-        public ICommand GoToHelpCommand { get; }
-
-        public INavigation Navigation { get; set; }
-
         public MenuViewModel()
         {
             LogOutCommand = new Command(LogOut);
@@ -31,26 +16,40 @@ namespace FormsApp.ViewModel
             GoToHelpCommand = new Command(GoToHelp);
         }
 
+        public ICommand LogOutCommand { get; }
+        public ICommand GoToTestsCommand { get; }
+        public ICommand GoToExercisesCommand { get; }
+        public ICommand GoToResultsCommand { get; }
+        public ICommand GoToHelpCommand { get; }
+
+        public INavigation Navigation { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public void LogOut()
         {
             Navigation.PushAsync(new MainPage());
         }
+
         public void GoToTests()
         {
             Navigation.PushAsync(new TestCategoriesPage());
         }
+
         public void GoToExercises()
         {
             Navigation.PushAsync(new ExerciseCategoriesPage());
         }
+
         public void GoToResults()
         {
             Navigation.PushAsync(new ResultsPage());
         }
+
         public void GoToHelp()
         {
             Navigation.PushAsync(new HelpPage());
         }
+
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)

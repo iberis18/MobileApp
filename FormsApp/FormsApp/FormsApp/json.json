@@ -96,29 +96,29 @@
     "Questions": [
       {
         "Text": "Выберите правильную фигуру из четырех предложенных.",
-        "Image": "t1-q1.png",
+        "Image": "t1_q1.png",
         "Answers": [
           {
             "Text": "",
-            "Image": "t1-q1.png"
+            "Image": "t1_q1_a1.png"
           },
           {
             "Text": "",
-            "Image": "t1-q2.png"
+            "Image": "t1-q1_a2.png"
           },
           {
             "Text": "",
-            "Image": "t1-q3.png"
+            "Image": "t1-q1_a3.png"
           },
           {
             "Text": "",
-            "Image": "t1-q4.png"
+            "Image": "t1-q1_a4.png"
           }
         ]
       },
       {
         "Text": "Найдите лишнее слово:",
-        "Image": "t1-q1.png",
+        "Image": "",
         "Answers": [
           {
             "Text": "ЖУКРАК",

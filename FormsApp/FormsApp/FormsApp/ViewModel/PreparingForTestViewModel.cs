@@ -27,7 +27,7 @@ namespace FormsApp.ViewModel
 
         private void Start()
         {
-            //Navigation.PushAsync(new TestPage(test.Name));
+            Navigation.PushAsync(new QuestionsPage(test.Name, 0));
         }
 
         private void Back()

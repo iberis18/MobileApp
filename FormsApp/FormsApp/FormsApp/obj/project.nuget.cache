@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a74+ThC8HCvo/wZ5nTmTB8Vr5IsM5CqJGYpoHBhVZq6zAkJtu+3OQ7kURBDGFpzYMtxXpwihfOGYzjBZvM3a9w==",
+  "dgSpecHash": "812R3iqRMUpP7fYK4zPJPt4Jk5x/D4b3lzd0F4d3g5k6AQpMdCBFro1aQV+b+5z6W4blSnLyFOhjlJIYV1vQlw==",
   "success": true,
-  "projectFilePath": "D:\\psychoTest\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj",
+  "projectFilePath": "D:\\1\\FormsApp\\FormsApp\\FormsApp\\FormsApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\air18\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\air18\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

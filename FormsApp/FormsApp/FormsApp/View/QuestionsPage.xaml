@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsApp.View.QuestionsPage"
+             BackgroundColor="#2F2FA2">
+
+    <ContentPage.Content>
+        <Grid>
+            <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z" />
+
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" VerticalOptions="Start" Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <ImageButton Grid.Column="0" Source="menuButton" Command="{Binding OpenMenuCommand}" BackgroundColor="Transparent" 
+                                     HorizontalOptions="Start" Margin="10,0,0,0"/>
+                        <ImageButton Grid.Column="2" Rotation="180" Source="backButton" Command="{Binding SkipCommand}" BackgroundColor="Transparent"
+                                     HorizontalOptions="End"/>
+                        <Label Grid.Column="1" Text="{Binding Number}" TextColor="White" FontSize="40" FontAttributes="Bold"
+                               HorizontalTextAlignment="Start" Padding="0,0,50,0"/>
+                    </Grid>
+
+                    <Image Grid.Row="1" Source="{Binding QuestionImage}" Margin="20,10,20,0" />
+                    <Label Grid.Row="2" Text="{Binding QuestionText}" TextColor="White" FontSize="20" Margin="20,10,20,10" />
+
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" BindableLayout.ItemsSource="{Binding LeftAnswerImages}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding .}" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding RightAnswerImages}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding .}" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </Grid>
+
+                    <StackLayout Grid.Row="4" BindableLayout.ItemsSource="{Binding AnswerTexts}" Margin="20,0,20,0">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout RadioButtonGroup.GroupName="images">
+                                    <RadioButton GroupName="text" Value="{Binding .}" Content="{Binding .}" TextColor="White"  FontSize="20" FontAttributes="Bold" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" VerticalOptions="EndAndExpand" Padding="70,20,70,20">
+                        <Button Text="Ответить" Command="{Binding AnswerCommand}" BackgroundColor="#F64C72"
+                                TextColor="White" FontSize="20" FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

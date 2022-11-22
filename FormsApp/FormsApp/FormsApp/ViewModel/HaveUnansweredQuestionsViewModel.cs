@@ -6,10 +6,11 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm Окна, вызываемого если есть вопросы без ответа
     internal class HaveUnansweredQuestionsViewModel : INotifyPropertyChanged
     {
-        private Dictionary<int, int?> answers;
-        private string testName;
+        private readonly Dictionary<int, int?> answers;
+        private readonly string testName;
         public HaveUnansweredQuestionsViewModel(string testName, Dictionary<int, int?> answers)
         {
             OpenMenuCommand = new Command(OpenMenu);

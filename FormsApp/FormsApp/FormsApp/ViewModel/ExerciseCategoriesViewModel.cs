@@ -6,11 +6,11 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна списка всех упражнений
     internal class ExerciseCategoriesViewModel : INotifyPropertyChanged
     {
         private readonly CategoryList allCategories = new CategoryList();
         private Category selectedCategory;
-
 
         public ExerciseCategoriesViewModel()
         {
@@ -29,9 +29,9 @@ namespace FormsApp.ViewModel
             {
                 if (selectedCategory != value)
                 {
-                    var tempCategory = value;
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
+                    //TODO open category
                     //Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
                 }
             }

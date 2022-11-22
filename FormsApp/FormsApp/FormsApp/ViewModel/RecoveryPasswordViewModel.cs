@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна сброса пароля
     internal class RecoveryPasswordViewModel : INotifyPropertyChanged
     {
         private string email = "";

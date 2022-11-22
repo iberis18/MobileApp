@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна успешного сброса пароля
     internal class SuccessRecoveryPasswordViewModel : INotifyPropertyChanged
     {
         public SuccessRecoveryPasswordViewModel()

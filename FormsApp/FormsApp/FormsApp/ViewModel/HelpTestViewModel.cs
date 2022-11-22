@@ -6,6 +6,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна помощи теста (подробно о тесте)
     internal class HelpTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;

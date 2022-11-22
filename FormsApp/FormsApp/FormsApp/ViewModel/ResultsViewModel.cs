@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна вывода результатов и рекомендаций
     internal class ResultsViewModel : INotifyPropertyChanged
     {
         private readonly Result result = new Result();

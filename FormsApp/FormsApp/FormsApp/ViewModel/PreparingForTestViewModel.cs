@@ -6,6 +6,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна подготовки к тестированию. Отображает имя, картинку и краткую инструкцию теста.
     internal class PreparingForTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
@@ -25,6 +26,7 @@ namespace FormsApp.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //начать тест
         private void Start()
         {
             Navigation.PushAsync(new QuestionsPage(test.Name, 0));

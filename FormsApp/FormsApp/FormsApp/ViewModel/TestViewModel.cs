@@ -6,6 +6,9 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна теста
+    //находи тест по имени (с бд будет по id)
+
     internal class TestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
@@ -22,20 +25,22 @@ namespace FormsApp.ViewModel
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
-        public string Name => test.Name;
-        public string Image => test.Image;
+        public string Name => test.Name; //название теста
+        public string Image => test.Image; //изображение теста
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //команда начать тест
         private void StartTest()
         {
             Navigation.PushAsync(new PreparingForTestPage(test.Name));
         }
+        //вызов справки 
         private void Help()
         {
             Navigation.PushAsync(new HelpTestPage(test.Name));
         }
-
+        //назад
         private void Back()
         {
             Navigation.PopAsync();

@@ -7,28 +7,31 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна списка всех тестов выбранной категории
     internal class TestsListByCategoryViewModel : INotifyPropertyChanged
     {
         private readonly TestsListByCategory allTestsByCategory;
         private string categoryName;
         private string selectedTest;
 
+        //получаем список тестов по названию категории (с бд будет по id)
         public TestsListByCategoryViewModel(string categoryName)
         {
-            GoToTestCommand = new Command(GoToTest);
             BackCommand = new Command(Back);
             this.categoryName = categoryName;
             allTestsByCategory = new TestsListByCategory(categoryName);
         }
 
-        public ICommand GoToTestCommand { get; }
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
+        //список всех тестов в данной категории
         public List<string> AllTests => allTestsByCategory.GetAllTests;
 
+        //изображение категории
         public string Image => allTestsByCategory.GetCategory.Image;
 
+        //название категории
         public string CategoryName => allTestsByCategory.GetCategory.Name;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -37,21 +40,17 @@ namespace FormsApp.ViewModel
         {
             Navigation.PopAsync();
         }
-
-        public void GoToTest()
-        {
-        }
-
+        
+        //переход к выбранному тесту
         public string SelectedTest
         {
             get => selectedTest;
             set
             {
                 if (selectedTest == value) return;
-                var temp = value;
                 selectedTest = null;
                 OnPropertyChanged("SelectedTest");
-                Navigation.PushAsync(new TestPage(temp));
+                Navigation.PushAsync(new TestPage(value));
             }
         }
 

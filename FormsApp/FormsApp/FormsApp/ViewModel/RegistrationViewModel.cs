@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm Окна регистрации
     internal class RegistrationViewModel : INotifyPropertyChanged
     {
         private string email = "", password = "", repeatPassword = "";

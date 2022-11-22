@@ -5,22 +5,25 @@ using Newtonsoft.Json;
 
 namespace FormsApp.Model
 {
+    //результат пользователя
+    //пройденные тесты и рекомендации
+    //(с бд не будет динамики)
+
     public class Result
     {
         public Result()
         {
             var jsonString = GetJSON();
             var jsonObject = JsonConvert.DeserializeObject<dynamic>(jsonString);
-            results = jsonObject["Results"].ToObject<List<string>>();
-            recommendations = jsonObject["Recommendations"].ToObject<string>();
+            GetResults = jsonObject["Results"].ToObject<List<string>>();
+            GetRecommendations = jsonObject["Recommendations"].ToObject<string>();
         }
 
-        private List<string> results { get; }
-        private string recommendations { get; }
+        // результаты пользователя
+        public List<string> GetResults { get; }
 
-        public List<string> GetResults => results;
-
-        public string GetRecommendations => recommendations;
+        //рекомендация для пользователя
+        public string GetRecommendations { get; }
 
         private string GetJSON()
         {

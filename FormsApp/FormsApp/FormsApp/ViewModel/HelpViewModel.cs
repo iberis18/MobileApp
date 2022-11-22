@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна помощи (о программе)
     internal class HelpViewModel : INotifyPropertyChanged
     {
         public HelpViewModel()

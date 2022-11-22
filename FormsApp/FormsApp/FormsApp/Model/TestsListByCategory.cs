@@ -5,6 +5,10 @@ using Newtonsoft.Json;
 
 namespace FormsApp.Model
 {
+    //список тестов в одной категории
+    //находит по имени категории все входящие в нее тесты
+    //(с бд будет по id + с бд не будет динамики)
+
     public class TestsListByCategory
     {
         public TestsListByCategory(string categoryName)

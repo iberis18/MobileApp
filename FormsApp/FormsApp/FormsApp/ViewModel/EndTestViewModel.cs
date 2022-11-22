@@ -6,9 +6,10 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    // vm окна, вызываемого при завершении теста
     internal class EndTestViewModel : INotifyPropertyChanged
     {
-        private Dictionary<int, int?> answers;
+        private Dictionary<int, int?> answers; //ответы пользователя
         private string testName;
         public EndTestViewModel(string testName, Dictionary<int, int?> answers)
         {

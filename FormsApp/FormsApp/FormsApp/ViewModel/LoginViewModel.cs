@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна входа
     internal class LoginViewModel : INotifyPropertyChanged
     {
         private string email = "", password = "";
@@ -49,13 +50,14 @@ namespace FormsApp.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //вход
         public void Login()
         {
-            //проверка правильности имени пользователя и пароля
-            //await DisplayAlert("Неудача!", "Неправильное имя пользователя или пароль! Попробуйте еще раз!", "OK");
+            //TODO проверка правильности имени пользователя и пароля
             Navigation.PushAsync(new MenuPage());
         }
 
+        //восстановление пароля
         public void RecoveryPassword()
         {
             Navigation.PushAsync(new RecoveryPasswordPage());

@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна вопроса
+    //основной функционал прохождения теста
+
     internal class QuestionsViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
@@ -18,6 +21,7 @@ namespace FormsApp.ViewModel
         private ObservableCollection<RadioElement> answerTexts = new ObservableCollection<RadioElement>();
         private Dictionary<int, int?> answers;
 
+        //для первого вопроса. Создаем и инициализируем ответы пользователя
         public QuestionsViewModel(string testName, int currentQuestion)
         {
             SkipCommand = new Command(Skip);
@@ -30,6 +34,9 @@ namespace FormsApp.ViewModel
             for (int i = 0; i < test.Questions.Count; i++)
                 answers[i] = -1;
         }
+
+        //для остальных вопросов 
+        //хранит предыдущие ответы пользователя
         public QuestionsViewModel(string testName, int currentQuestion, Dictionary<int, int?> answers)
         {
             SkipCommand = new Command(Skip);
@@ -47,10 +54,14 @@ namespace FormsApp.ViewModel
         public ICommand OpenMenuCommand { get; }
         public INavigation Navigation { get; set; }
 
+        //выводит заголовок
         public string Number => "Вопрос №" + (currentQuestion + 1).ToString();
+        //выводит изображение вопроса
         public string QuestionImage => test.Questions[currentQuestion].Image;
+        //выводит текст вопроса
         public string QuestionText => test.Questions[currentQuestion].Text;
 
+        //выводит варианты ответа
         public ObservableCollection<RadioElement> LeftAnswerImages
         {
             get => leftAnswerImages;
@@ -64,6 +75,7 @@ namespace FormsApp.ViewModel
             }
         }
 
+        //выводит варианты ответа
         public ObservableCollection<RadioElement> RightAnswerImages
         {
             get => rightAnswerImages;
@@ -77,6 +89,7 @@ namespace FormsApp.ViewModel
             }
         }
 
+        //выводит варианты ответа
         public ObservableCollection<RadioElement> AnswerTexts
         {
             get => answerTexts;
@@ -92,18 +105,21 @@ namespace FormsApp.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //пропустить вопрос
         private void Skip()
         {
             answers[currentQuestion] = null;
             NextQuestionOrFinish();
         }
 
+        //ответить на вопрос
         private void Answer()
         {
             CheckAnswer();
             NextQuestionOrFinish();
         }
 
+        //проверить, существует ли следующий вопрос, или пора завершать тест
         private void NextQuestionOrFinish()
         {
             if (currentQuestion < test.Questions.Count - 1)
@@ -112,6 +128,7 @@ namespace FormsApp.ViewModel
                 HaveUnunsweredQuestion();
         }
 
+        //проверяет, остались ли вопросы без ответа
         private void HaveUnunsweredQuestion()
         {
             if (answers.Any(x => x.Value == -1 || x.Value == null))
@@ -120,11 +137,13 @@ namespace FormsApp.ViewModel
                 Navigation.PushAsync(new EndTestPage(test.Name, answers));
         }
 
+        //открыть список вопросов
         private void OpenMenu()
         {
             Navigation.PushAsync(new QuestionsMenuPage(test.Name, answers));
         }
 
+        //проинициализировать список вариантов ответов 
         private void AddAnswers()
         {
             for (var i = 0; i < test.Questions[currentQuestion].Answers.Count; i += 2)
@@ -142,6 +161,7 @@ namespace FormsApp.ViewModel
                     answerTexts.Add(new RadioElement() { Checked = false, Value = t.Text });
         }
 
+        //найти выбранный вариант ответа и запомнить его
         private void CheckAnswer()
         {
             for (var index = 0; index < leftAnswerImages.Count; index++)
@@ -168,11 +188,11 @@ namespace FormsApp.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
-
+        //элемент варианта ответа radiobutton 
         public class RadioElement : INotifyPropertyChanged
         {
-            private string value;
-            private bool check;
+            private string value; //значение 
+            private bool check; //выбран или нет
 
             public string Value
             {

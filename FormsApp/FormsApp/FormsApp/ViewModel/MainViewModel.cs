@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //стартовое окно. Предлагает вход/регистрацию
     internal class MainViewModel : INotifyPropertyChanged
     {
         public MainViewModel()

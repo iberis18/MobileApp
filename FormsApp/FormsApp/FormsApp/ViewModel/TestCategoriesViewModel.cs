@@ -7,6 +7,8 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна списка категорий тестов
+
     internal class TestCategoriesViewModel : INotifyPropertyChanged
     {
         private readonly CategoryList allCategories = new CategoryList();
@@ -23,6 +25,7 @@ namespace FormsApp.ViewModel
 
         public List<Category> AllCategories => allCategories.GetAllTestCategories;
 
+        //открывает список тестов в выбранной категории
         public Category SelectedCategory
         {
             get => selectedCategory;
@@ -30,10 +33,9 @@ namespace FormsApp.ViewModel
             {
                 if (selectedCategory != value)
                 {
-                    var tempCategory = value;
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
+                    Navigation.PushAsync(new TestsListByCategoryPage(value.Name));
                 }
             }
         }

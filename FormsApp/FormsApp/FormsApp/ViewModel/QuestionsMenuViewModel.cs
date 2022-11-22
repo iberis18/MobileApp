@@ -7,29 +7,34 @@ using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
+    //vm окна, отображающего список всех вопросов теста
+    //позволяет переходить между вопросами и возвращаться к пропущенным
+
     internal class QuestionsMenuViewModel : INotifyPropertyChanged
     {
+        private readonly Dictionary<int, int?> answers;
         private readonly Test test;
-        private List<QuestionForMenu> allQuestions = new List<QuestionForMenu>();
-        private QuestionForMenu selectedQuestion = null;
-        private Dictionary<int, int?> answers;
+        private QuestionForMenu selectedQuestion;
 
+        //передаем тест (с базой будет по id) и ответы пользователя
         public QuestionsMenuViewModel(string testName, Dictionary<int, int?> answers)
         {
             BackCommand = new Command(Back);
+            CompleteCommand = new Command(Complete);
             test = new Test(testName);
             this.answers = answers;
 
-            for (int i = 0; i < test.Questions.Count; i++)
-            {
-                allQuestions.Add(new QuestionForMenu(i, answers));
-            }
+            for (var i = 0; i < test.Questions.Count; i++) AllQuestions.Add(new QuestionForMenu(i, answers));
         }
 
         public ICommand BackCommand { get; }
+        public ICommand CompleteCommand { get; }
         public INavigation Navigation { get; set; }
 
-        public List<QuestionForMenu> AllQuestions => allQuestions;
+
+        public List<QuestionForMenu> AllQuestions { get; } = new List<QuestionForMenu>();
+
+        //команда перехода к выбранному вопросу
         public QuestionForMenu SelectedQuestion
         {
             get => selectedQuestion;
@@ -51,21 +56,23 @@ namespace FormsApp.ViewModel
             Navigation.PopAsync();
         }
 
+        //завершить тест
+        public void Complete()
+        {
+            Navigation.PushAsync(new EndTestPage(test.Name, answers));
+        }
+
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
-
+        //вопросы с ответом — зеленый, пропущенные — красный, не просмотренные — белый.
         public class QuestionForMenu
         {
-            public string Color { get; set; }
-            public string Name { get; set; }
-            public int Number { get; set; }
-
             public QuestionForMenu(int question, Dictionary<int, int?> answers)
             {
-                Name = "Вопрос №" + (question + 1).ToString();
+                Name = "Вопрос №" + (question + 1);
                 Number = question;
                 switch (answers[question])
                 {
@@ -80,6 +87,10 @@ namespace FormsApp.ViewModel
                         break;
                 }
             }
+
+            public string Color { get; set; }
+            public string Name { get; set; }
+            public int Number { get; set; }
         }
     }
 }

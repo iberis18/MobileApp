@@ -47,15 +47,30 @@
                         <StackLayout Grid.Column="0" BindableLayout.ItemsSource="{Binding LeftAnswerImages}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding .}" />
+                                    <Grid HorizontalOptions="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton Grid.Column="0" GroupName="image" IsChecked="{Binding Checked}" />
+                                        <Image Grid.Column="1" Source="{Binding Value}" />
+                                    </Grid>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
 
+
                         <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding RightAnswerImages}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding .}" />
+                                    <Grid HorizontalOptions="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <RadioButton GroupName="image" Grid.Column="0" IsChecked="{Binding Checked}" />
+                                        <Image Grid.Column="1" Source="{Binding Value}" />
+                                    </Grid>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
@@ -65,7 +80,7 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout RadioButtonGroup.GroupName="images">
-                                    <RadioButton GroupName="text" Value="{Binding .}" Content="{Binding .}" TextColor="White"  FontSize="20" FontAttributes="Bold" />
+                                    <RadioButton GroupName="text" IsChecked="{Binding Checked}" Content="{Binding Value}" TextColor="White"  FontSize="20" FontAttributes="Bold" />
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

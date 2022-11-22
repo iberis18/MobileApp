@@ -18,5 +18,11 @@ namespace FormsApp.View
             NavigationPage.SetHasNavigationBar(this, false);
             BindingContext = new QuestionsViewModel(testName, currentQuestion) { Navigation = Navigation };
         }
+        public QuestionsPage(string testName, int currentQuestion, Dictionary<int, int?> answers)
+        {
+            InitializeComponent();
+            NavigationPage.SetHasNavigationBar(this, false);
+            BindingContext = new QuestionsViewModel(testName, currentQuestion, answers) { Navigation = Navigation };
+        }
     }
 }

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsApp.View.EndTestPage"
+             BackgroundColor="#2F2FA2">
+    <ContentPage.Content>
+        <Grid>
+            <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z" />
+            <StackLayout>
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout>
+
+                        <Label Text="Ваш результат:" TextColor="White" FontSize="40" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" Margin="0,50,0,0" />
+                        <Label Text="{Binding Result}" TextColor="White" FontSize="40" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center"/>
+
+                        <Label TextColor="White" FontSize="20"
+                           HorizontalTextAlignment="Center"
+                            Text="{Binding Comment}"
+                           Padding="15,20,15, 0" />
+    
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="70,0,70,70">
+                            <Button Text="В меню" Command="{Binding GoToMenuCommand}" BackgroundColor="#F64C72"
+                                    TextColor="White" FontSize="20" FontAttributes="Bold" />
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

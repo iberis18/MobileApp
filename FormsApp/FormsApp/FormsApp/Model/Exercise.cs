@@ -11,11 +11,6 @@ namespace FormsApp.Model
     //(с бд будет по id + с бд не будет динамики)
     public class Exercise
     {
-        public string Name { get; }
-        public List<Question> Questions { get; }
-        public List<int> RightAnswer { get; }
-        public List<string> MainImage { get; }
-
         public Exercise(string name)
         {
             var jsonString = GetJson();
@@ -42,6 +37,11 @@ namespace FormsApp.Model
                 }
             }
         }
+
+        public string Name { get; }
+        public List<Question> Questions { get; }
+        public List<int> RightAnswer { get; }
+        public List<string> MainImage { get; }
 
         private static string GetJson()
         {

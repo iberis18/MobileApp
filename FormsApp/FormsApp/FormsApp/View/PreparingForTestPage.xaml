@@ -13,10 +13,10 @@
                 <ScrollView VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <Label Text="{Binding Name}" TextColor="White" FontSize="40" FontAttributes="Bold"
-                                       HorizontalTextAlignment="Center" />
+                               HorizontalTextAlignment="Center" />
                         <Label TextColor="White" FontSize="20"
                                HorizontalTextAlignment="Center"
-                                Text="{Binding Instruction}"
+                               Text="{Binding Instruction}"
                                Padding="15,20,15, 0" />
 
                         <StackLayout VerticalOptions="EndAndExpand" Padding="70,0,70,70">

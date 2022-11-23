@@ -11,6 +11,7 @@ namespace FormsApp.ViewModel
     {
         private readonly Dictionary<int, int?> answers;
         private readonly string testName;
+
         public HaveUnansweredQuestionsViewModel(string testName, Dictionary<int, int?> answers)
         {
             OpenMenuCommand = new Command(OpenMenu);
@@ -29,11 +30,12 @@ namespace FormsApp.ViewModel
         {
             Navigation.PushAsync(new QuestionsMenuPage(testName, answers));
         }
+
         public void Complete()
         {
             Navigation.PushAsync(new EndTestPage(testName, answers));
         }
-        
+
         protected void OnPropertyChanged(string propName)
         {
             if (PropertyChanged != null)

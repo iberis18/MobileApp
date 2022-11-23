@@ -34,13 +34,6 @@ namespace FormsApp.ViewModel
         //название категории
         public string CategoryName => allTestsByCategory.GetCategory.Name;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void Back()
-        {
-            Navigation.PopAsync();
-        }
-        
         //переход к выбранному тесту
         public string SelectedTest
         {
@@ -52,6 +45,13 @@ namespace FormsApp.ViewModel
                 OnPropertyChanged("SelectedTest");
                 Navigation.PushAsync(new TestPage(value));
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Back()
+        {
+            Navigation.PopAsync();
         }
 
         protected void OnPropertyChanged(string propName)

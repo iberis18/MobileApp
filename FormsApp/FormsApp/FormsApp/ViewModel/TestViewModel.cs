@@ -12,6 +12,7 @@ namespace FormsApp.ViewModel
     internal class TestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
+
         public TestViewModel(string testName)
         {
             StartTestCommand = new Command(StartTest);
@@ -35,11 +36,13 @@ namespace FormsApp.ViewModel
         {
             Navigation.PushAsync(new PreparingForTestPage(test.Name));
         }
+
         //вызов справки 
         private void Help()
         {
             Navigation.PushAsync(new HelpTestPage(test.Name));
         }
+
         //назад
         private void Back()
         {

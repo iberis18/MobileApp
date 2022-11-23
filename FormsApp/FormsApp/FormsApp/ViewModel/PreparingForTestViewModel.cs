@@ -10,6 +10,7 @@ namespace FormsApp.ViewModel
     internal class PreparingForTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
+
         public PreparingForTestViewModel(string testName)
         {
             StartCommand = new Command(Start);

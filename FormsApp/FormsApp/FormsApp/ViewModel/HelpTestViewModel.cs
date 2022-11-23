@@ -10,6 +10,7 @@ namespace FormsApp.ViewModel
     internal class HelpTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
+
         public HelpTestViewModel(string testName)
         {
             GoToTestCommand = new Command(GoToTest);

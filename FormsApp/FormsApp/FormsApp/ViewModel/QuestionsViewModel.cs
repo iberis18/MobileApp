@@ -14,12 +14,14 @@ namespace FormsApp.ViewModel
 
     internal class QuestionsViewModel : INotifyPropertyChanged
     {
-        private readonly Test test;
         private readonly int currentQuestion;
-        private ObservableCollection<RadioElement> leftAnswerImages = new ObservableCollection<RadioElement>();
-        private ObservableCollection<RadioElement> rightAnswerImages = new ObservableCollection<RadioElement>();
+        private readonly Test test;
+        private readonly Dictionary<int, int?> answers;
         private ObservableCollection<RadioElement> answerTexts = new ObservableCollection<RadioElement>();
-        private Dictionary<int, int?> answers;
+        private readonly ObservableCollection<RadioElement> leftAnswerImages = new ObservableCollection<RadioElement>();
+
+        private readonly ObservableCollection<RadioElement>
+            rightAnswerImages = new ObservableCollection<RadioElement>();
 
         //для первого вопроса. Создаем и инициализируем ответы пользователя
         public QuestionsViewModel(string testName, int currentQuestion)
@@ -31,7 +33,7 @@ namespace FormsApp.ViewModel
             this.currentQuestion = currentQuestion;
             AddAnswers();
             answers = new Dictionary<int, int?>();
-            for (int i = 0; i < test.Questions.Count; i++)
+            for (var i = 0; i < test.Questions.Count; i++)
                 answers[i] = -1;
         }
 
@@ -55,9 +57,11 @@ namespace FormsApp.ViewModel
         public INavigation Navigation { get; set; }
 
         //выводит заголовок
-        public string Number => "Вопрос №" + (currentQuestion + 1).ToString();
+        public string Number => "Вопрос №" + (currentQuestion + 1);
+
         //выводит изображение вопроса
         public string QuestionImage => test.Questions[currentQuestion].Image;
+
         //выводит текст вопроса
         public string QuestionText => test.Questions[currentQuestion].Text;
 
@@ -148,41 +152,44 @@ namespace FormsApp.ViewModel
         {
             for (var i = 0; i < test.Questions[currentQuestion].Answers.Count; i += 2)
                 if (test.Questions[currentQuestion].Answers[i].Image != "")
-                    leftAnswerImages.Add(new RadioElement()
+                    leftAnswerImages.Add(new RadioElement
                         { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
 
             for (var i = 1; i < test.Questions[currentQuestion].Answers.Count; i += 2)
                 if (test.Questions[currentQuestion].Answers[i].Image != "")
-                    rightAnswerImages.Add(new RadioElement()
+                    rightAnswerImages.Add(new RadioElement
                         { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
 
             foreach (var t in test.Questions[currentQuestion].Answers)
                 if (t.Text != "")
-                    answerTexts.Add(new RadioElement() { Checked = false, Value = t.Text });
+                    answerTexts.Add(new RadioElement { Checked = false, Value = t.Text });
         }
 
         //найти выбранный вариант ответа и запомнить его
         private void CheckAnswer()
         {
             for (var index = 0; index < leftAnswerImages.Count; index++)
-                if (leftAnswerImages[index].Checked == true)
+                if (leftAnswerImages[index].Checked)
                 {
                     answers[currentQuestion] = index * 2;
                     return;
                 }
+
             for (var index = 0; index < rightAnswerImages.Count; index++)
-                if (rightAnswerImages[index].Checked == true)
+                if (rightAnswerImages[index].Checked)
                 {
                     answers[currentQuestion] = index * 2 + 1;
                     return;
                 }
+
             for (var index = 0; index < answerTexts.Count; index++)
-                if (answerTexts[index].Checked == true)
+                if (answerTexts[index].Checked)
                 {
                     answers[currentQuestion] = index;
                     return;
                 }
         }
+
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
@@ -191,8 +198,8 @@ namespace FormsApp.ViewModel
         //элемент варианта ответа radiobutton 
         public class RadioElement : INotifyPropertyChanged
         {
-            private string value; //значение 
             private bool check; //выбран или нет
+            private string value; //значение 
 
             public string Value
             {
@@ -220,12 +227,12 @@ namespace FormsApp.ViewModel
                 }
             }
 
+            public event PropertyChangedEventHandler PropertyChanged;
+
             protected void OnPropertyChanged(string propName)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
             }
-
-            public event PropertyChangedEventHandler PropertyChanged;
         }
     }
 }

@@ -11,12 +11,6 @@ namespace FormsApp.Model
     //(с бд будет по id + с бд не будет динамики)
     public class Test
     {
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public List<Question> Questions { get; set; }
-        public string Instruction { get; set; }
-        public string Help { get; set; }
-
         public Test(string name)
         {
             var jsonString = GetJson();
@@ -32,6 +26,12 @@ namespace FormsApp.Model
                 Questions = test?["Questions"].ToObject<List<Question>>();
             }
         }
+
+        public string Name { get; set; }
+        public string Image { get; set; }
+        public List<Question> Questions { get; set; }
+        public string Instruction { get; set; }
+        public string Help { get; set; }
 
         private static string GetJson()
         {

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using System.Windows.Input;
 using FormsApp.View;
 using Xamarin.Forms;
@@ -15,7 +14,8 @@ namespace FormsApp.ViewModel
             GoToTestsCommand = new Command(GoToTests);
             GoToExercisesCommand = new Command(GoToExercises);
             GoToResultsCommand = new Command(GoToResults);
-            GoToHelpCommand = new Command(GoToHelp); }
+            GoToHelpCommand = new Command(GoToHelp);
+        }
 
         public ICommand LogOutCommand { get; }
         public ICommand GoToTestsCommand { get; }

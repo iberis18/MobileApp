@@ -10,7 +10,7 @@
             <StackLayout>
                 <ImageButton Source="backButton" Command="{Binding BackCommand}" BackgroundColor="Transparent"
                              HorizontalOptions="Start" Margin="20,20,0,0" />
-                
+
                 <Image Source="{Binding Image}" Margin="120,50,120,0" />
                 <Label Text="{Binding Name}" TextColor="White" FontSize="40" FontAttributes="Bold"
                        HorizontalTextAlignment="Center" Margin="0,40,0,0" />

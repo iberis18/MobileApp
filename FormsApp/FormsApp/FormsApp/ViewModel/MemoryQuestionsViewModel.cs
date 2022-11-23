@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
 using Xamarin.Forms;
@@ -18,8 +11,8 @@ namespace FormsApp.ViewModel
 
     internal class MemoryQuestionsViewModel : INotifyPropertyChanged
     {
-        public readonly Exercise exercise;
         public readonly int currentQuestion;
+        public readonly Exercise exercise;
 
         public MemoryQuestionsViewModel(string exName)
         {
@@ -27,17 +20,14 @@ namespace FormsApp.ViewModel
             currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
             ShowAnswers();
         }
+
         public MemoryQuestionsViewModel(Exercise ex)
-        { 
+        {
             exercise = ex;
             currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
             ShowAnswers();
         }
-        private async void ShowAnswers()
-        {
-            await Task.Delay(3000);
-            Navigation.PushAsync(new MemoryAnswersPage(exercise, currentQuestion));
-        }
+
         public INavigation Navigation { get; set; }
 
 
@@ -45,6 +35,12 @@ namespace FormsApp.ViewModel
         public string QuestionImage => exercise.MainImage[currentQuestion];
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private async void ShowAnswers()
+        {
+            await Task.Delay(3000);
+            Navigation.PushAsync(new MemoryAnswersPage(exercise, currentQuestion));
+        }
 
         protected void OnPropertyChanged(string propName)
         {

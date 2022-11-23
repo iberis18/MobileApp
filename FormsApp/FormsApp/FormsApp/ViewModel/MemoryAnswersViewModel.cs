@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FormsApp.Model;
@@ -18,8 +13,8 @@ namespace FormsApp.ViewModel
 
     internal class MemoryAnswersViewModel : INotifyPropertyChanged
     {
-        public readonly Exercise exercise;
         public readonly int currentQuestion;
+        public readonly Exercise exercise;
 
         public MemoryAnswersViewModel(Exercise ex, int currentQuestion)
         {
@@ -35,6 +30,7 @@ namespace FormsApp.ViewModel
 
         //выводит изображение вопроса
         public string QuestionImage => exercise.Questions[currentQuestion].Image;
+
         //выводит текст вопроса
         public string QuestionText => exercise.Questions[currentQuestion].Text;
 
@@ -58,35 +54,29 @@ namespace FormsApp.ViewModel
         private void AddAnswers()
         {
             for (var i = 0; i < exercise.Questions[currentQuestion].Answers.Count; i += 2)
-                LeftAnswers.Add(new AnswerButton(this) { Value = exercise.Questions[currentQuestion].Answers[i].Text, Color = "#F64C72" });
+                LeftAnswers.Add(new AnswerButton(this)
+                    { Value = exercise.Questions[currentQuestion].Answers[i].Text, Color = "#F64C72" });
 
             for (var i = 1; i < exercise.Questions[currentQuestion].Answers.Count; i += 2)
-                RightAnswers.Add(new AnswerButton(this) { Value = exercise.Questions[currentQuestion].Answers[i].Text, Color = "#F64C72" });
+                RightAnswers.Add(new AnswerButton(this)
+                    { Value = exercise.Questions[currentQuestion].Answers[i].Text, Color = "#F64C72" });
         }
 
 
         //элемент варианта ответа
         public class AnswerButton : INotifyPropertyChanged
         {
-            private string value; //значение 
-            private string color; //цвет
             private readonly MemoryAnswersViewModel vm;
+            private string color; //цвет
+            private string value; //значение 
+
             public AnswerButton(MemoryAnswersViewModel vm)
             {
                 AnswerCommand = new Command(Answer);
                 this.vm = vm;
             }
-            public ICommand AnswerCommand { get; }
-            private async void Answer()
-            {
-                if (vm.exercise.RightAnswer[vm.currentQuestion] % 2 == 0)
-                    vm.LeftAnswers[vm.exercise.RightAnswer[vm.currentQuestion] / 2].Color = "#73C094";
-                else
-                    vm.RightAnswers[(vm.exercise.RightAnswer[vm.currentQuestion] - 1) / 2].Color = "#73C094";
 
-                await Task.Delay(700);
-                vm.NextQuestion();
-            }
+            public ICommand AnswerCommand { get; }
 
             public string Value
             {
@@ -114,12 +104,23 @@ namespace FormsApp.ViewModel
                 }
             }
 
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private async void Answer()
+            {
+                if (vm.exercise.RightAnswer[vm.currentQuestion] % 2 == 0)
+                    vm.LeftAnswers[vm.exercise.RightAnswer[vm.currentQuestion] / 2].Color = "#73C094";
+                else
+                    vm.RightAnswers[(vm.exercise.RightAnswer[vm.currentQuestion] - 1) / 2].Color = "#73C094";
+
+                await Task.Delay(700);
+                vm.NextQuestion();
+            }
+
             protected void OnPropertyChanged(string propName)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
             }
-
-            public event PropertyChangedEventHandler PropertyChanged;
         }
     }
 }

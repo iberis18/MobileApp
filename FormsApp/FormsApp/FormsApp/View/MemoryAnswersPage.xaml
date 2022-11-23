@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FormsApp.View.MemoryAnswersPage"
@@ -10,20 +11,22 @@
 
             <ScrollView>
                 <StackLayout>
-                    <Label HorizontalTextAlignment="Center" Text="{Binding QuestionText}" TextColor="White" FontSize="30" FontAttributes="Bold" Margin="20,70,20,10" />
+                    <Label HorizontalTextAlignment="Center" Text="{Binding QuestionText}" TextColor="White"
+                           FontSize="30" FontAttributes="Bold" Margin="20,70,20,10" />
                     <Image Source="{Binding QuestionImage}" Margin="100,10,100,0" />
 
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <StackLayout Grid.Column="0" BindableLayout.ItemsSource="{Binding LeftAnswers}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Text="{Binding Value}" Command="{Binding AnswerCommand}" BackgroundColor="{Binding Color}"
-                                            TextColor="White" FontSize="20" FontAttributes="Bold" Margin="50,10,10,0"/>
+                                    <Button Text="{Binding Value}" Command="{Binding AnswerCommand}"
+                                            BackgroundColor="{Binding Color}"
+                                            TextColor="White" FontSize="20" FontAttributes="Bold" Margin="50,10,10,0" />
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>
@@ -32,8 +35,9 @@
                         <StackLayout Grid.Column="1" BindableLayout.ItemsSource="{Binding RightAnswers}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <Button Text="{Binding Value}" Command="{Binding AnswerCommand}" BackgroundColor="{Binding Color}"
-                                            TextColor="White" FontSize="20" FontAttributes="Bold" Margin="10,10,50,0"/>
+                                    <Button Text="{Binding Value}" Command="{Binding AnswerCommand}"
+                                            BackgroundColor="{Binding Color}"
+                                            TextColor="White" FontSize="20" FontAttributes="Bold" Margin="10,10,50,0" />
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
                         </StackLayout>

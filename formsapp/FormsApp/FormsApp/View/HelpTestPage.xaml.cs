@@ -5,13 +5,13 @@ using Xamarin.Forms.Xaml;
 namespace FormsApp.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InstructionMemoryPage : ContentPage
+    public partial class HelpTestPage : ContentPage
     {
-        public InstructionMemoryPage()
+        public HelpTestPage(string testName)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new InstructionMemoryViewModel { Navigation = Navigation };
+            BindingContext = new HelpTestViewModel(testName) { Navigation = Navigation };
         }
     }
 }

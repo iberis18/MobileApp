@@ -1,32 +1,35 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using FormsApp.Model;
+using FormsApp.View;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
 {
-    //vm окна подготовки к тестированию. Отображает имя, картинку и краткую инструкцию теста.
-    internal class InstructionMemoryViewModel : INotifyPropertyChanged
+    //vm окна помощи теста (подробно о тесте)
+    internal class HelpTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
 
-        public InstructionMemoryViewModel()
+        public HelpTestViewModel(string testName)
         {
-            StartCommand = new Command(Start);
+            GoToTestCommand = new Command(GoToTest);
             BackCommand = new Command(Back);
+            test = new Test(testName);
         }
 
-        public ICommand StartCommand { get; }
+        public ICommand GoToTestCommand { get; }
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
+        public string Name => test.Name;
+        public string Help => test.Help;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //начать тест
-        private void Start()
+        private void GoToTest()
         {
-            //Navigation.PushAsync(new QuestionsPage(test.Name, 0));
-            //TODO открытие страницы с тренажером памяти
+            Navigation.PushAsync(new TestPage(test.Name));
         }
 
         private void Back()

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsApp.View.HaveUnansweredQuestionsPage"
+             BackgroundColor="#2F2FA2">
+    <ContentPage.Content>
+        <Grid>
+            <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z" />
+            <StackLayout>
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <StackLayout VerticalOptions="Center">
+
+                        <Label Text="Вы ответили не на все вопросы!" TextColor="White" FontSize="30"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="Хотите завершить тест?" TextColor="White" FontSize="30" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" />
+
+                        <StackLayout Padding="70,40,70,0">
+                            <Button Text="К списку вопросов" Command="{Binding OpenMenuCommand}"
+                                    BackgroundColor="#F64C72"
+                                    TextColor="White" FontSize="20" FontAttributes="Bold" />
+                            <Button Text="Завершить тестирование" Command="{Binding CompleteCommand}" TextColor="White"
+                                    FontSize="20" FontAttributes="Bold" BackgroundColor="Transparent"
+                                    BorderColor="#99738E"
+                                    BorderWidth="4" Margin="0,20,0,0" />
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

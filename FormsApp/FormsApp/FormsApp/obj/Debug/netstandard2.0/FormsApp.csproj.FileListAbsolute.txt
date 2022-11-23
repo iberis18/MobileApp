@@ -112,3 +112,4 @@ D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\ref\FormsApp.dll
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\FormsApp.pdb
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\EndTestPage.xaml.g.cs
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\HaveUnansweredQuestionsPage.xaml.g.cs
+D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\ExerciseQuestionsPage.xaml.g.cs

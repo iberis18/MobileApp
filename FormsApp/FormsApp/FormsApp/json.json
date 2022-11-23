@@ -183,5 +183,59 @@
         ]
       }
     ]
+  },
+
+  "Exercise": {
+    "Name": "Мышление",
+    "Questions": [
+      {
+        "Text": "Найдите сумму времени на часах",
+        "Image": "e1_q1.png",
+        "Answers": [
+          {
+            "Text": "9:00",
+            "Image": ""
+          },
+          {
+            "Text": "5:00",
+            "Image": ""
+          },
+          {
+            "Text": "7:00",
+            "Image": ""
+          },
+          {
+            "Text": "6:00",
+            "Image": ""
+          }
+        ]
+      },
+      {
+        "Text": "Найдите сумму углов фигур",
+        "Image": "e1_q2.png",
+        "Answers": [
+          {
+            "Text": "9",
+            "Image": ""
+          },
+          {
+            "Text": "10",
+            "Image": ""
+          },
+          {
+            "Text": "8",
+            "Image": ""
+          },
+          {
+            "Text": "12",
+            "Image": ""
+          }
+        ]
+      }
+    ],
+    "RightAnswer": [
+      1,
+      0
+    ]
   }
 }

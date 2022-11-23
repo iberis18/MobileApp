@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Input;
 using FormsApp.Model;
+using FormsApp.View;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
@@ -31,8 +32,7 @@ namespace FormsApp.ViewModel
                 {
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    //TODO open category
-                    //Navigation.PushAsync(new TestsListByCategoryPage(tempCategory.Name));
+                    Navigation.PushAsync(new ExerciseQuestionsPage(value.Name));
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace FormsApp.ViewModel
 
         public void Back()
         {
-            Navigation.PopAsync();
+            Navigation.PushAsync(new MenuPage());
         }
 
         protected void OnPropertyChanged(string propName)

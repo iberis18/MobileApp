@@ -14,6 +14,8 @@ namespace FormsApp.Model
         public string Name { get; }
         public List<Question> Questions { get; }
         public List<int> RightAnswer { get; }
+        public List<string> MainImage { get; }
+
         public Exercise(string name)
         {
             var jsonString = GetJson();
@@ -26,6 +28,18 @@ namespace FormsApp.Model
                 Name = test["Name"].ToString();
                 Questions = test?["Questions"].ToObject<List<Question>>();
                 RightAnswer = test?["RightAnswer"].ToObject<List<int>>();
+            }
+            else
+            {
+                test = jsonObject["MemoryExercise"];
+                if (test == null) return;
+                if (name == test["Name"].ToString())
+                {
+                    Name = test["Name"].ToString();
+                    Questions = test?["Questions"].ToObject<List<Question>>();
+                    RightAnswer = test?["RightAnswer"].ToObject<List<int>>();
+                    MainImage = test?["MainImage"].ToObject<List<string>>();
+                }
             }
         }
 

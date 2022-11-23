@@ -2364,3 +2364,6 @@ D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_GeneratePackageMana
 D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\stamp\_ResolveLibraryProjectImports.stamp
 D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\e1_q2.png
 D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\e1_q1.png
+D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\e2_q2_2.png
+D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\e2_q2_1.png
+D:\2\FormsApp\FormsApp\FormsApp.Android\obj\Debug\110\res\drawable\e2_q1_1.png

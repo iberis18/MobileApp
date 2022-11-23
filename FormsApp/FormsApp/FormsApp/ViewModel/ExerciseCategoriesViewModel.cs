@@ -32,7 +32,10 @@ namespace FormsApp.ViewModel
                 {
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    Navigation.PushAsync(new ExerciseQuestionsPage(value.Name));
+                    if (value.Name == "Мышление")
+                        Navigation.PushAsync(new ThinkingExercisePage(value.Name));
+                    else if (value.Name == "Память")
+                        Navigation.PushAsync(new MemoryQuestionsPage(value.Name));
                 }
             }
         }

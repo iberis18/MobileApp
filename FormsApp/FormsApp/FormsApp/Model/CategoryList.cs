@@ -15,8 +15,9 @@ namespace FormsApp.Model
         {
             var jsonString = GetJSON();
             var jsonObject = JsonConvert.DeserializeObject<dynamic>(jsonString);
-            GetAllTestCategories = jsonObject["TestCategories"].ToObject<List<Category>>();
-            GetAllExerciseCategories = jsonObject["ExerciseCategories"].ToObject<List<Category>>();
+            GetAllTestCategories = jsonObject?["TestCategories"].ToObject<List<Category>>();
+            GetAllExerciseCategories = jsonObject?["ExerciseCategories"].ToObject<List<Category>>();
+
         }
 
         //возвращает список всех категорий тестов

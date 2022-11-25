@@ -14,24 +14,23 @@ namespace FormsApp.ViewModel
 
     internal class ThinkingExerciseViewModel : INotifyPropertyChanged
     {
-        public readonly int currentQuestion;
-        public readonly Exercise exercise;
+        public int currentQuestion;
+        public Exercise exercise;
+        private string questionImage, questionText;
 
         public ThinkingExerciseViewModel(string exName)
         {
-            //AnswerCommand = new Command(Answer);
             StopCommand = new Command(Stop);
             exercise = new Exercise(exName);
-            currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
+            Init();
             AddAnswers();
         }
 
         public ThinkingExerciseViewModel(Exercise ex)
         {
-            //AnswerCommand = new Command(Answer);
             StopCommand = new Command(Stop);
             exercise = ex;
-            currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
+            Init();
             AddAnswers();
         }
 
@@ -39,18 +38,52 @@ namespace FormsApp.ViewModel
         public ICommand StopCommand { get; }
         public INavigation Navigation { get; set; }
 
+        private void Init()
+        {
+            currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
+            QuestionImage = exercise.Questions[currentQuestion].Image;
+            QuestionText = exercise.Questions[currentQuestion].Text;
+        }
 
         //выводит изображение вопроса
-        public string QuestionImage => exercise.Questions[currentQuestion].Image;
+        public string QuestionImage
+        {
+            get => questionImage;
+            set
+            {
+                if (questionImage != value)
+                {
+                    questionImage = value;
+                    OnPropertyChanged("QuestionImage");
+                }
+            }
+        }
 
         //выводит текст вопроса
-        public string QuestionText => exercise.Questions[currentQuestion].Text;
+        public string QuestionText
+        {
+            get => questionText;
+            set
+            {
+                if (questionText != value)
+                {
+                    questionText = value;
+                    OnPropertyChanged("QuestionText");
+                }
+            }
+        }
 
         //выводит варианты ответа
         public ObservableCollection<AnswerButton> LeftAnswers { get; set; } = new ObservableCollection<AnswerButton>();
         public ObservableCollection<AnswerButton> RightAnswers { get; set; } = new ObservableCollection<AnswerButton>();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
 
         private void Stop()
         {
@@ -59,12 +92,17 @@ namespace FormsApp.ViewModel
 
         public void NextQuestion()
         {
-            Navigation.PushAsync(new ThinkingExercisePage(exercise));
+            //Navigation.PushAsync(new ThinkingExercisePage(exercise));
+            Init();
+            AddAnswers();
         }
 
         //проинициализировать список вариантов ответов 
         private void AddAnswers()
         {
+            LeftAnswers.Clear();
+            RightAnswers.Clear();
+
             for (var i = 0; i < exercise.Questions[currentQuestion].Answers.Count; i += 2)
                 LeftAnswers.Add(new AnswerButton(this)
                     { Value = exercise.Questions[currentQuestion].Answers[i].Text, Color = "#F64C72" });

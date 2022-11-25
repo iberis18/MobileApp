@@ -35,7 +35,9 @@ namespace FormsApp.ViewModel
                     if (value.Name == "Мышление")
                         Navigation.PushAsync(new ThinkingExercisePage(value.Name));
                     else if (value.Name == "Память")
-                        Navigation.PushAsync(new MemoryQuestionsPage(value.Name));
+                        Navigation.PushAsync(new InstructionMemoryPage(value.Name));
+                    else if (value.Name == "Внимательность")
+                        Navigation.PushAsync(new AttentionExercisePage());
                 }
             }
         }

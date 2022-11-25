@@ -7,11 +7,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InstructionMemoryPage : ContentPage
     {
-        public InstructionMemoryPage()
+        public InstructionMemoryPage(string name)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new InstructionMemoryViewModel { Navigation = Navigation };
+            BindingContext = new InstructionMemoryViewModel(name) { Navigation = Navigation };
         }
     }
 }

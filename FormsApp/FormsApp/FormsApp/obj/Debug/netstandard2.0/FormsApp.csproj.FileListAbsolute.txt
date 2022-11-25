@@ -116,3 +116,4 @@ D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\ThinkingExercisePa
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\InstructionMemoryPage.xaml.g.cs
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\MemoryAnswersPage.xaml.g.cs
 D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\MemoryQuestionsPage.xaml.g.cs
+D:\2\FormsApp\FormsApp\FormsApp\obj\Debug\netstandard2.0\View\AttentionExercisePage.xaml.g.cs

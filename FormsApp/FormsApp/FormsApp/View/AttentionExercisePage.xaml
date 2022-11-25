@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormsApp.View.AttentionExercisePage"
+             BackgroundColor="#2F2FA2">
+    <ContentPage.Content>
+        <Grid>
+            <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z" />
+            <Grid x:Name="rootGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Таблица шульте тут -->
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label HorizontalTextAlignment="Center" Text="{Binding Question}" Margin="0,50,0,30" FontAttributes="Bold" FontSize="40" TextColor="#FFFFFF" Grid.Row="0" Grid.Column="0"/>
+
+                <!--Bind the HeightRequest of the board grid to its own width-->
+                <Grid Grid.Row="1" x:Name="theBoard" HeightRequest="{Binding Source={x:Reference theBoard}, Path=Width}" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="col1" Width="*" />
+                        <ColumnDefinition x:Name="col2" Width="*" />
+                        <ColumnDefinition x:Name="col3" Width="*" />
+                        <ColumnDefinition x:Name="col4" Width="*" />
+                        <ColumnDefinition x:Name="col5" Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Столбик 0 -->
+                    <Grid Grid.Column="0" BindableLayout.ItemsSource="{Binding ZeroColumn}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </Grid>
+
+                    <!-- Столбик 1 -->
+                    <Grid Grid.Column="1" BindableLayout.ItemsSource="{Binding FirstColumn}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </Grid>
+
+
+                    <!-- Столбик 2 -->
+                    <Grid Grid.Column="2" BindableLayout.ItemsSource="{Binding SecondColumn}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </Grid>
+
+
+                    <!-- Столбик 3 -->
+                    <Grid Grid.Column="3" BindableLayout.ItemsSource="{Binding ThirdColumn}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </Grid>
+
+
+                    <!-- Столбик 4 -->
+                    <Grid Grid.Column="4" BindableLayout.ItemsSource="{Binding FourthColumn}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </Grid>
+
+
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <StackLayout VerticalOptions="Center" Padding="70,0,70,0">
+                        <Button Text="Завершить" Command="{Binding StopCommand}" BackgroundColor="#F64C72"
+                                TextColor="White" FontSize="20" FontAttributes="Bold" />
+                    </StackLayout>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -8,11 +8,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ThinkingExercisePage : ContentPage
     {
-        public ThinkingExercisePage(string exName)
+        public ThinkingExercisePage(int exId)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new ThinkingExerciseViewModel(exName) { Navigation = Navigation };
+            BindingContext = new ThinkingExerciseViewModel(exId) { Navigation = Navigation };
         }
 
         public ThinkingExercisePage(Exercise ex)

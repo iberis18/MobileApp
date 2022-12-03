@@ -47,7 +47,7 @@ namespace FormsApp.ViewModel
 
         public void NextQuestion()
         {
-            Navigation.PushAsync(new MemoryQuestionsPage(exercise.Name));
+            Navigation.PushAsync(new MemoryQuestionsPage(exercise.Id));
         }
 
         //проинициализировать список вариантов ответов 
@@ -108,10 +108,14 @@ namespace FormsApp.ViewModel
 
             private async void Answer()
             {
-                if (vm.exercise.RightAnswer[vm.currentQuestion] % 2 == 0)
-                    vm.LeftAnswers[vm.exercise.RightAnswer[vm.currentQuestion] / 2].Color = "#73C094";
-                else
-                    vm.RightAnswers[(vm.exercise.RightAnswer[vm.currentQuestion] - 1) / 2].Color = "#73C094";
+                for (int i = 0; i < vm.exercise.Questions[vm.currentQuestion].Answers.Count; i++)
+                {
+                    if (vm.exercise.Questions[vm.currentQuestion].Answers[i].isTrue)
+                        if (i % 2 == 0)
+                            vm.LeftAnswers[i / 2].Color = "#73C094";
+                        else
+                            vm.RightAnswers[(i - 1) / 2].Color = "#73C094";
+                }
 
                 await Task.Delay(700);
                 vm.NextQuestion();

@@ -15,9 +15,9 @@
                     <!-- Таблица шульте тут -->
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
+                </Grid.RowDefinitions>  
 
-                <Label HorizontalTextAlignment="Center" Text="{Binding Question}" Margin="0,50,0,30" FontAttributes="Bold" FontSize="40" TextColor="#FFFFFF" Grid.Row="0" Grid.Column="0"/>
+                <Label HorizontalTextAlignment="Center" Text="{Binding Question}" Margin="10,50,10,30" FontAttributes="Bold" FontSize="40" TextColor="#FFFFFF" Grid.Row="0" Grid.Column="0"/>
 
                 <!--Bind the HeightRequest of the board grid to its own width-->
                 <Grid Grid.Row="1" x:Name="theBoard" HeightRequest="{Binding Source={x:Reference theBoard}, Path=Width}" Margin="10">
@@ -41,8 +41,8 @@
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
-                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" TextColor="Black" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="30" FontAttributes="Bold" Grid.Row="{Binding Index}" />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </Grid>
@@ -59,8 +59,8 @@
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
-                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" TextColor="Black" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="30" FontAttributes="Bold" Grid.Row="{Binding Index}" />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </Grid>
@@ -78,8 +78,8 @@
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
-                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" TextColor="Black" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="30" FontAttributes="Bold" Grid.Row="{Binding Index}" />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </Grid>
@@ -97,8 +97,8 @@
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
-                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" TextColor="Black" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="30" FontAttributes="Bold" Grid.Row="{Binding Index}" />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </Grid>
@@ -116,8 +116,8 @@
 
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" Command="{Binding AnswerCommand}" 
-                                        CommandParameter="{Binding Value}" FontSize="40" FontAttributes="Bold" Grid.Row="{Binding Index}" />
+                                <Button BackgroundColor="{Binding Color}" Text="{Binding Value}" TextColor="Black" Command="{Binding AnswerCommand}" 
+                                        CommandParameter="{Binding Value}" FontSize="30" FontAttributes="Bold" Grid.Row="{Binding Index}" />
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </Grid>
@@ -126,7 +126,7 @@
                 </Grid>
 
                 <Grid Grid.Row="2">
-                    <StackLayout VerticalOptions="Center" Padding="70,0,70,0">
+                    <StackLayout VerticalOptions="Center" Padding="50,0,50,0">
                         <Button Text="Завершить" Command="{Binding StopCommand}" BackgroundColor="#F64C72"
                                 TextColor="White" FontSize="20" FontAttributes="Bold" />
                     </StackLayout>

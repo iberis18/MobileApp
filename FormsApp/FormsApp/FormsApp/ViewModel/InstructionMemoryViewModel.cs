@@ -9,12 +9,12 @@ namespace FormsApp.ViewModel
     //vm окна подготовки к тестированию. Отображает имя, картинку и краткую инструкцию теста.
     internal class InstructionMemoryViewModel : INotifyPropertyChanged
     {
-        private string name;
-        public InstructionMemoryViewModel(string name)
+        private int id;
+        public InstructionMemoryViewModel(int id)
         {
             StartCommand = new Command(Start);
             BackCommand = new Command(Back);
-            this.name = name;
+            this.id = id;
         }
 
         public ICommand StartCommand { get; }
@@ -26,7 +26,7 @@ namespace FormsApp.ViewModel
         //начать тест
         private void Start()
         {
-            Navigation.PushAsync(new MemoryQuestionsPage(name));
+            Navigation.PushAsync(new MemoryQuestionsPage(id));
         }
 
         private void Back()

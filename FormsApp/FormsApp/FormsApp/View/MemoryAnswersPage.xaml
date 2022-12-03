@@ -13,7 +13,7 @@
                 <StackLayout>
                     <Label HorizontalTextAlignment="Center" Text="{Binding QuestionText}" TextColor="White"
                            FontSize="30" FontAttributes="Bold" Margin="20,70,20,10" />
-                    <Image Source="{Binding QuestionImage}" Margin="100,10,100,0" />
+                    <Image Source="{Binding QuestionImage}" Margin="100,10,100,40" />
 
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -43,7 +43,7 @@
                         </StackLayout>
                     </Grid>
 
-                    <StackLayout VerticalOptions="EndAndExpand" Padding="70,20,70,20">
+                    <StackLayout VerticalOptions="EndAndExpand" Padding="50,20,50,20">
                         <Button Text="Завершить" Command="{Binding StopCommand}" BackgroundColor="#F64C72"
                                 TextColor="White" FontSize="20" FontAttributes="Bold" />
                     </StackLayout>

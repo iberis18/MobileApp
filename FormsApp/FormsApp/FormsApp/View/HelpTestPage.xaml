@@ -19,7 +19,7 @@
                                Text="{Binding Help}"
                                Padding="15,20,15, 0" />
 
-                        <StackLayout Padding="70,50,70,50">
+                        <StackLayout Padding="50">
                             <Button Text="К тесту" Command="{Binding GoToTestCommand}" BackgroundColor="#F64C72"
                                     TextColor="White" FontSize="20" FontAttributes="Bold" />
                         </StackLayout>

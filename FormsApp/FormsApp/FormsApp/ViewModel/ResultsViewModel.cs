@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
@@ -10,22 +11,25 @@ namespace FormsApp.ViewModel
     //vm окна вывода результатов и рекомендаций
     internal class ResultsViewModel : INotifyPropertyChanged
     {
-        private readonly Result result = new Result();
+        private readonly IEnumerable<Result> results;
 
 
         public ResultsViewModel()
         {
             GoToExercisesCommand = new Command(GoToExercises);
             BackCommand = new Command(Back);
+            results = App.Database.GetResults();
         }
 
         public ICommand GoToExercisesCommand { get; }
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
-        public List<string> AllResults => result.GetResults;
+        public List<Result> AllResults => results.ToList();
 
-        public string Recommendations => result.GetRecommendations;
+        public string Recommendations => "recommendation";
+
+        //TODO recommendation BL
 
         public event PropertyChangedEventHandler PropertyChanged;
 

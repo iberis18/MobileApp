@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
@@ -11,10 +12,9 @@ namespace FormsApp.ViewModel
 
     internal class TestCategoriesViewModel : INotifyPropertyChanged
     {
-        private readonly CategoryList allCategories = new CategoryList();
+        IEnumerable<Category> allCategories = App.Database.GetCategories();
         private Category selectedCategory;
-
-
+        
         public TestCategoriesViewModel()
         {
             BackCommand = new Command(Back);
@@ -23,7 +23,7 @@ namespace FormsApp.ViewModel
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
-        public List<Category> AllCategories => allCategories.GetAllTestCategories;
+        public List<Category> AllCategories => allCategories.ToList();
 
         //открывает список тестов в выбранной категории
         public Category SelectedCategory
@@ -35,7 +35,7 @@ namespace FormsApp.ViewModel
                 {
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    Navigation.PushAsync(new TestsListByCategoryPage(value.Name));
+                    Navigation.PushAsync(new TestsListByCategoryPage(value.Id));
                 }
             }
         }

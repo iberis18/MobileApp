@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
@@ -10,32 +11,32 @@ namespace FormsApp.ViewModel
     //vm окна списка всех тестов выбранной категории
     internal class TestsListByCategoryViewModel : INotifyPropertyChanged
     {
-        private readonly TestsListByCategory allTestsByCategory;
-        private string categoryName;
-        private string selectedTest;
+        private readonly IEnumerable<Test> allTestsByCategory;
+        private readonly Category category;
+        private Test selectedTest;
 
-        //получаем список тестов по названию категории (с бд будет по id)
-        public TestsListByCategoryViewModel(string categoryName)
+        //получаем список тестов
+        public TestsListByCategoryViewModel(int id)
         {
             BackCommand = new Command(Back);
-            this.categoryName = categoryName;
-            allTestsByCategory = new TestsListByCategory(categoryName);
+            category = App.Database.GetCategory(id);
+            allTestsByCategory = App.Database.GetTestsByCategory(id);
         }
 
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
         //список всех тестов в данной категории
-        public List<string> AllTests => allTestsByCategory.GetAllTests;
+        public List<Test> AllTests => allTestsByCategory.ToList();
 
         //изображение категории
-        public string Image => allTestsByCategory.GetCategory.Image;
+        public string Image => category.Image;
 
         //название категории
-        public string CategoryName => allTestsByCategory.GetCategory.Name;
+        public string CategoryName => category.Name;
 
         //переход к выбранному тесту
-        public string SelectedTest
+        public Test SelectedTest
         {
             get => selectedTest;
             set
@@ -43,7 +44,7 @@ namespace FormsApp.ViewModel
                 if (selectedTest == value) return;
                 selectedTest = null;
                 OnPropertyChanged("SelectedTest");
-                Navigation.PushAsync(new TestPage(value));
+                Navigation.PushAsync(new TestPage(value.Id));
             }
         }
 

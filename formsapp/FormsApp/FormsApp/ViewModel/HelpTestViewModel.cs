@@ -11,11 +11,11 @@ namespace FormsApp.ViewModel
     {
         private readonly Test test;
 
-        public HelpTestViewModel(string testName)
+        public HelpTestViewModel(int id)
         {
             GoToTestCommand = new Command(GoToTest);
             BackCommand = new Command(Back);
-            test = new Test(testName);
+            test = App.Database.GetTest(id);
         }
 
         public ICommand GoToTestCommand { get; }
@@ -29,7 +29,7 @@ namespace FormsApp.ViewModel
 
         private void GoToTest()
         {
-            Navigation.PushAsync(new TestPage(test.Name));
+            Navigation.PushAsync(new TestPage(test.Id));
         }
 
         private void Back()

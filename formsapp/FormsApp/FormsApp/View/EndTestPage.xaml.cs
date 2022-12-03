@@ -8,11 +8,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EndTestPage : ContentPage
     {
-        public EndTestPage(string testName, Dictionary<int, int?> answers)
+        public EndTestPage(int testId, Dictionary<int, int?> answers)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new EndTestViewModel(testName, answers) { Navigation = Navigation };
+            BindingContext = new EndTestViewModel(testId, answers) { Navigation = Navigation };
         }
     }
 }

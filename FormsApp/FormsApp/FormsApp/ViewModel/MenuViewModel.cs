@@ -15,6 +15,7 @@ namespace FormsApp.ViewModel
             GoToExercisesCommand = new Command(GoToExercises);
             GoToResultsCommand = new Command(GoToResults);
             GoToHelpCommand = new Command(GoToHelp);
+
         }
 
         public ICommand LogOutCommand { get; }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
 using FormsApp.Model;
 using FormsApp.View;
@@ -10,8 +11,9 @@ namespace FormsApp.ViewModel
     //vm окна списка всех упражнений
     internal class ExerciseCategoriesViewModel : INotifyPropertyChanged
     {
-        private readonly CategoryList allCategories = new CategoryList();
-        private Category selectedCategory;
+        //private readonly CategoryList allCategories = new CategoryList();
+        private Exercise selectedExercise;
+        private IEnumerable<Exercise> allCategories = App.Database.GetExercises();
 
         public ExerciseCategoriesViewModel()
         {
@@ -21,23 +23,24 @@ namespace FormsApp.ViewModel
         public ICommand BackCommand { get; }
         public INavigation Navigation { get; set; }
 
-        public List<Category> AllCategories => allCategories.GetAllExerciseCategories;
+        public List<Exercise> AllCategories => allCategories.ToList();
 
-        public Category SelectedCategory
+        public Exercise SelectedCategory
         {
-            get => selectedCategory;
+            get => selectedExercise;
             set
             {
-                if (selectedCategory != value)
+                if (selectedExercise != value)
                 {
-                    selectedCategory = null;
+                    selectedExercise = null;
                     OnPropertyChanged("SelectedCategory");
-                    if (value.Name == "Мышление")
-                        Navigation.PushAsync(new ThinkingExercisePage(value.Name));
-                    else if (value.Name == "Память")
-                        Navigation.PushAsync(new InstructionMemoryPage(value.Name));
-                    else if (value.Name == "Внимательность")
-                        Navigation.PushAsync(new AttentionExercisePage());
+                    switch (value.Id)
+                    {
+                        case 1: Navigation.PushAsync(new AttentionExercisePage()); break;
+                        case 2: Navigation.PushAsync(new ThinkingExercisePage(value.Id)); break;
+                        case 3: Navigation.PushAsync(new InstructionMemoryPage(value.Id)); break;
+                    }
+
                 }
             }
         }

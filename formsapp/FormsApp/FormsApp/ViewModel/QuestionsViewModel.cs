@@ -24,12 +24,13 @@ namespace FormsApp.ViewModel
             rightAnswerImages = new ObservableCollection<RadioElement>();
 
         //для первого вопроса. Создаем и инициализируем ответы пользователя
-        public QuestionsViewModel(string testName, int currentQuestion)
+        public QuestionsViewModel(int testId, int currentQuestion)
         {
             SkipCommand = new Command(Skip);
             AnswerCommand = new Command(Answer);
             OpenMenuCommand = new Command(OpenMenu);
-            test = new Test(testName);
+            test = App.Database.GetTest(testId);
+
             this.currentQuestion = currentQuestion;
             AddAnswers();
             answers = new Dictionary<int, int?>();
@@ -39,12 +40,13 @@ namespace FormsApp.ViewModel
 
         //для остальных вопросов 
         //хранит предыдущие ответы пользователя
-        public QuestionsViewModel(string testName, int currentQuestion, Dictionary<int, int?> answers)
+        public QuestionsViewModel(int testId, int currentQuestion, Dictionary<int, int?> answers)
         {
             SkipCommand = new Command(Skip);
             AnswerCommand = new Command(Answer);
             OpenMenuCommand = new Command(OpenMenu);
-            test = new Test(testName);
+            test = App.Database.GetTest(testId);
+
             this.currentQuestion = currentQuestion;
             AddAnswers();
             this.answers = answers;
@@ -127,7 +129,7 @@ namespace FormsApp.ViewModel
         private void NextQuestionOrFinish()
         {
             if (currentQuestion < test.Questions.Count - 1)
-                Navigation.PushAsync(new QuestionsPage(test.Name, currentQuestion + 1, answers));
+                Navigation.PushAsync(new QuestionsPage(test.Id, currentQuestion + 1, answers));
             else
                 HaveUnunsweredQuestion();
         }
@@ -136,15 +138,15 @@ namespace FormsApp.ViewModel
         private void HaveUnunsweredQuestion()
         {
             if (answers.Any(x => x.Value == -1 || x.Value == null))
-                Navigation.PushAsync(new HaveUnansweredQuestionsPage(test.Name, answers));
+                Navigation.PushAsync(new HaveUnansweredQuestionsPage(test.Id, answers));
             else
-                Navigation.PushAsync(new EndTestPage(test.Name, answers));
+                Navigation.PushAsync(new EndTestPage(test.Id, answers));
         }
 
         //открыть список вопросов
         private void OpenMenu()
         {
-            Navigation.PushAsync(new QuestionsMenuPage(test.Name, answers));
+            Navigation.PushAsync(new QuestionsMenuPage(test.Id, answers));
         }
 
         //проинициализировать список вариантов ответов 

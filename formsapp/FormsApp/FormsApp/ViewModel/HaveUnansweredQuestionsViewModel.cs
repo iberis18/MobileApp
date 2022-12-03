@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.Model;
 using FormsApp.View;
 using Xamarin.Forms;
 
@@ -10,14 +11,14 @@ namespace FormsApp.ViewModel
     internal class HaveUnansweredQuestionsViewModel : INotifyPropertyChanged
     {
         private readonly Dictionary<int, int?> answers;
-        private readonly string testName;
+        private readonly int test;
 
-        public HaveUnansweredQuestionsViewModel(string testName, Dictionary<int, int?> answers)
+        public HaveUnansweredQuestionsViewModel(int testId, Dictionary<int, int?> answers)
         {
             OpenMenuCommand = new Command(OpenMenu);
             CompleteCommand = new Command(Complete);
             this.answers = answers;
-            this.testName = testName;
+            this.test = testId;
         }
 
         public ICommand OpenMenuCommand { get; }
@@ -28,12 +29,12 @@ namespace FormsApp.ViewModel
 
         public void OpenMenu()
         {
-            Navigation.PushAsync(new QuestionsMenuPage(testName, answers));
+            Navigation.PushAsync(new QuestionsMenuPage(test, answers));
         }
 
         public void Complete()
         {
-            Navigation.PushAsync(new EndTestPage(testName, answers));
+            Navigation.PushAsync(new EndTestPage(test, answers));
         }
 
         protected void OnPropertyChanged(string propName)

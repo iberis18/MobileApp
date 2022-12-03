@@ -13,7 +13,7 @@
                 <ScrollView VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <Label Text="Тренировка памяти" TextColor="White" FontSize="40" FontAttributes="Bold"
-                               HorizontalTextAlignment="Center" />
+                               HorizontalTextAlignment="Center" Margin="10,0" />
                         <Label TextColor="White" FontSize="20"
                                HorizontalTextAlignment="Center"
                                Text="Постарайтесь запомнить количество и направление самолетов."
@@ -23,7 +23,7 @@
                                Text="Каждая картинка будет показана в течение двух секунд, после чего вам придется ответить на вопросы."
                                Padding="15,20,15, 0" />
 
-                        <StackLayout VerticalOptions="CenterAndExpand" Padding="70,0,70,70">
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="70,00,70,70">
                             <Button Text="Начать" Command="{Binding StartCommand}" BackgroundColor="#F64C72"
                                     TextColor="White" FontSize="20" FontAttributes="Bold" />
                         </StackLayout>

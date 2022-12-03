@@ -13,12 +13,12 @@ namespace FormsApp.ViewModel
     {
         private readonly Test test;
 
-        public TestViewModel(string testName)
+        public TestViewModel(int id)
         {
             StartTestCommand = new Command(StartTest);
             BackCommand = new Command(Back);
             HelpCommand = new Command(Help);
-            test = new Test(testName);
+            test = App.Database.GetTest(id);
         }
 
         public ICommand StartTestCommand { get; }
@@ -34,13 +34,13 @@ namespace FormsApp.ViewModel
         //команда начать тест
         private void StartTest()
         {
-            Navigation.PushAsync(new PreparingForTestPage(test.Name));
+            Navigation.PushAsync(new PreparingForTestPage(test.Id));
         }
 
         //вызов справки 
         private void Help()
         {
-            Navigation.PushAsync(new HelpTestPage(test.Name));
+            Navigation.PushAsync(new HelpTestPage(test.Id));
         }
 
         //назад

@@ -11,11 +11,11 @@ namespace FormsApp.ViewModel
     {
         private readonly Test test;
 
-        public PreparingForTestViewModel(string testName)
+        public PreparingForTestViewModel(int testId)
         {
             StartCommand = new Command(Start);
             BackCommand = new Command(Back);
-            test = new Test(testName);
+            test = App.Database.GetTest(testId);
         }
 
         public ICommand StartCommand { get; }
@@ -30,7 +30,7 @@ namespace FormsApp.ViewModel
         //начать тест
         private void Start()
         {
-            Navigation.PushAsync(new QuestionsPage(test.Name, 0));
+            Navigation.PushAsync(new QuestionsPage(test.Id, 0));
         }
 
         private void Back()

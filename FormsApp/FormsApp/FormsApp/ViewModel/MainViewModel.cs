@@ -1,6 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Input;
+using FormsApp.Model;
 using FormsApp.View;
+using Newtonsoft.Json;
 using Xamarin.Forms;
 
 namespace FormsApp.ViewModel
@@ -13,7 +18,6 @@ namespace FormsApp.ViewModel
             LoginCommand = new Command(Login);
             RegistrationCommand = new Command(Registration);
         }
-        //private Phone phone;
 
         public ICommand LoginCommand { get; }
         public ICommand RegistrationCommand { get; }

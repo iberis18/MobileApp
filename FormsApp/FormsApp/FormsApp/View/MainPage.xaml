@@ -11,7 +11,7 @@
             <Image Margin="100,50,100,20" Source="icon.png" />
             <Label Text="Мобильный психотест" TextColor="White" FontSize="40" FontAttributes="Bold"
                    HorizontalTextAlignment="Center" />
-            <StackLayout Padding="100,50,100,0">
+            <StackLayout Padding="50,50,50,0">
                 <Button Text="Вход" Command="{Binding LoginCommand}" BackgroundColor="#F64C72" TextColor="White"
                         FontSize="20" FontAttributes="Bold" />
                 <Button Text="Регистрация" Command="{Binding RegistrationCommand}" TextColor="White" FontSize="20"

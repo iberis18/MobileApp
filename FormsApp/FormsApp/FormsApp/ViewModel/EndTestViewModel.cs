@@ -10,13 +10,13 @@ namespace FormsApp.ViewModel
     internal class EndTestViewModel : INotifyPropertyChanged
     {
         private readonly Dictionary<int, int?> answers; //ответы пользователя
-        private string testName;
+        private int test;
 
-        public EndTestViewModel(string testName, Dictionary<int, int?> answers)
+        public EndTestViewModel(int testId, Dictionary<int, int?> answers)
         {
             GoToMenuCommand = new Command(GoToMenu);
             this.answers = answers;
-            this.testName = testName;
+            this.test = testId;
         }
 
         public ICommand GoToMenuCommand { get; }

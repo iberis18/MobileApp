@@ -14,9 +14,9 @@ namespace FormsApp.ViewModel
         public readonly int currentQuestion;
         public readonly Exercise exercise;
 
-        public MemoryQuestionsViewModel(string exName)
+        public MemoryQuestionsViewModel(int id)
         {
-            exercise = new Exercise(exName);
+            exercise = App.Database.GetExercise(id);
             currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
             ShowAnswers();
         }
@@ -32,7 +32,7 @@ namespace FormsApp.ViewModel
 
 
         //выводит изображение вопроса
-        public string QuestionImage => exercise.MainImage[currentQuestion];
+        public string QuestionImage => exercise.Questions[currentQuestion].ExerciseImage;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

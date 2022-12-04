@@ -10,13 +10,15 @@ namespace FormsApp.ViewModel
     internal class EndTestViewModel : INotifyPropertyChanged
     {
         private readonly Dictionary<int, int?> answers; //ответы пользователя
-        private string testName;
+        private int test;
+        private readonly int userId;
 
-        public EndTestViewModel(string testName, Dictionary<int, int?> answers)
+        public EndTestViewModel(int userId, int testId, Dictionary<int, int?> answers)
         {
+            this.userId = userId;
             GoToMenuCommand = new Command(GoToMenu);
             this.answers = answers;
-            this.testName = testName;
+            this.test = testId;
         }
 
         public ICommand GoToMenuCommand { get; }
@@ -41,7 +43,7 @@ namespace FormsApp.ViewModel
 
         public void GoToMenu()
         {
-            Navigation.PushAsync(new MenuPage());
+            Navigation.PushAsync(new MenuPage(userId));
         }
 
         protected void OnPropertyChanged(string propName)

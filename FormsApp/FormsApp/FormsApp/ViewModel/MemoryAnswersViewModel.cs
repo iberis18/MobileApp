@@ -15,11 +15,13 @@ namespace FormsApp.ViewModel
     {
         public readonly int currentQuestion;
         public readonly Exercise exercise;
+        private readonly int userId;
 
-        public MemoryAnswersViewModel(Exercise ex, int currentQuestion)
+        public MemoryAnswersViewModel(int userId, Exercise ex, int currentQuestion)
         {
             StopCommand = new Command(Stop);
             exercise = ex;
+            this.userId = userId;
             this.currentQuestion = currentQuestion;
             AddAnswers();
         }
@@ -42,12 +44,12 @@ namespace FormsApp.ViewModel
 
         private void Stop()
         {
-            Navigation.PushAsync(new ExerciseCategoriesPage());
+            Navigation.PushAsync(new ExerciseCategoriesPage(userId));
         }
 
         public void NextQuestion()
         {
-            Navigation.PushAsync(new MemoryQuestionsPage(exercise.Id));
+            Navigation.PushAsync(new MemoryQuestionsPage(userId, exercise.Id));
         }
 
         //проинициализировать список вариантов ответов 

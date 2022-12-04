@@ -8,18 +8,18 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuestionsPage : ContentPage
     {
-        public QuestionsPage(string testName, int currentQuestion)
+        public QuestionsPage(int userId, int testId, int currentQuestion)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new QuestionsViewModel(testName, currentQuestion) { Navigation = Navigation };
+            BindingContext = new QuestionsViewModel(userId, testId, currentQuestion) { Navigation = Navigation };
         }
 
-        public QuestionsPage(string testName, int currentQuestion, Dictionary<int, int?> answers)
+        public QuestionsPage(int userId, int testId, int currentQuestion, Dictionary<int, int?> answers)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new QuestionsViewModel(testName, currentQuestion, answers) { Navigation = Navigation };
+            BindingContext = new QuestionsViewModel(userId, testId, currentQuestion, answers) { Navigation = Navigation };
         }
     }
 }

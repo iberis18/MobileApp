@@ -8,8 +8,10 @@ namespace FormsApp.ViewModel
     //vm окна помощи (о программе)
     internal class HelpViewModel : INotifyPropertyChanged
     {
-        public HelpViewModel()
+        private readonly int userId;
+        public HelpViewModel(int userId)
         {
+            this.userId = userId;
             GoToMenuCommand = new Command(GoToMenu);
             BackCommand = new Command(Back);
         }
@@ -21,7 +23,7 @@ namespace FormsApp.ViewModel
 
         public void GoToMenu()
         {
-            Navigation.PushAsync(new MenuPage());
+            Navigation.PushAsync(new MenuPage(userId));
         }
 
         public void Back()

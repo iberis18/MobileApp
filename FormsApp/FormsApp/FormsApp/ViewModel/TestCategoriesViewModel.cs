@@ -14,9 +14,12 @@ namespace FormsApp.ViewModel
     {
         IEnumerable<Category> allCategories = App.Database.GetCategories();
         private Category selectedCategory;
-        
-        public TestCategoriesViewModel()
+        private readonly int userId;
+
+
+        public TestCategoriesViewModel(int userId)
         {
+            this.userId = userId;
             BackCommand = new Command(Back);
         }
 
@@ -35,7 +38,7 @@ namespace FormsApp.ViewModel
                 {
                     selectedCategory = null;
                     OnPropertyChanged("SelectedCategory");
-                    Navigation.PushAsync(new TestsListByCategoryPage(value.Id));
+                    Navigation.PushAsync(new TestsListByCategoryPage(userId, value.Id));
                 }
             }
         }

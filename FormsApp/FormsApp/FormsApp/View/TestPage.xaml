@@ -13,7 +13,7 @@
 
                 <Image Source="{Binding Image}" Margin="120,50,120,0" />
                 <Label Text="{Binding Name}" TextColor="White" FontSize="40" FontAttributes="Bold"
-                       HorizontalTextAlignment="Center" Margin="0,40,0,0" />
+                       HorizontalTextAlignment="Center" Margin="10,40,10,0" />
 
                 <StackLayout Padding="70,40,70,0">
                     <Button Text="Начать тест" Command="{Binding StartTestCommand}" BackgroundColor="#F64C72"

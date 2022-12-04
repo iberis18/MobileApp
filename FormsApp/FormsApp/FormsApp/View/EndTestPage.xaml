@@ -21,7 +21,7 @@
                                Text="{Binding Comment}"
                                Padding="15,20,15, 0" />
 
-                        <StackLayout VerticalOptions="EndAndExpand" Padding="70,0,70,70">
+                        <StackLayout VerticalOptions="EndAndExpand" Padding="50,0,50,70">
                             <Button Text="В меню" Command="{Binding GoToMenuCommand}" BackgroundColor="#F64C72"
                                     TextColor="White" FontSize="20" FontAttributes="Bold" />
                         </StackLayout>

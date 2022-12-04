@@ -7,11 +7,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TestPage : ContentPage
     {
-        public TestPage(int testId)
+        public TestPage(int userId, int testId)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new TestViewModel(testId) { Navigation = Navigation };
+            BindingContext = new TestViewModel(userId, testId) { Navigation = Navigation };
         }
     }
 }

@@ -10,11 +10,13 @@ namespace FormsApp.ViewModel
     internal class InstructionMemoryViewModel : INotifyPropertyChanged
     {
         private int id;
-        public InstructionMemoryViewModel(int id)
+        private readonly int userId;
+        public InstructionMemoryViewModel(int userId, int id)
         {
             StartCommand = new Command(Start);
             BackCommand = new Command(Back);
             this.id = id;
+            this.userId = userId;
         }
 
         public ICommand StartCommand { get; }
@@ -26,7 +28,7 @@ namespace FormsApp.ViewModel
         //начать тест
         private void Start()
         {
-            Navigation.PushAsync(new MemoryQuestionsPage(id));
+            Navigation.PushAsync(new MemoryQuestionsPage(userId, id));
         }
 
         private void Back()

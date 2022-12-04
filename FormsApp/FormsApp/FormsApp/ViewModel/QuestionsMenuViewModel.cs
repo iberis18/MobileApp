@@ -15,14 +15,16 @@ namespace FormsApp.ViewModel
         private readonly Dictionary<int, int?> answers;
         private readonly Test test;
         private QuestionForMenu selectedQuestion;
+        private readonly int userId;
 
         //передаем тест (с базой будет по id) и ответы пользователя
-        public QuestionsMenuViewModel(int testId, Dictionary<int, int?> answers)
+        public QuestionsMenuViewModel(int userId, int testId, Dictionary<int, int?> answers)
         {
             BackCommand = new Command(Back);
             CompleteCommand = new Command(Complete);
             test = App.Database.GetTest(testId);
             this.answers = answers;
+            this.userId = userId;
 
             for (var i = 0; i < test.Questions.Count; i++) AllQuestions.Add(new QuestionForMenu(i, answers));
         }
@@ -44,7 +46,7 @@ namespace FormsApp.ViewModel
                 {
                     selectedQuestion = null;
                     OnPropertyChanged("SelectedQuestion");
-                    Navigation.PushAsync(new QuestionsPage(test.Id, value.Number, answers));
+                    Navigation.PushAsync(new QuestionsPage(userId, test.Id, value.Number, answers));
                 }
             }
         }
@@ -59,7 +61,7 @@ namespace FormsApp.ViewModel
         //завершить тест
         public void Complete()
         {
-            Navigation.PushAsync(new EndTestPage(test.Id, answers));
+            Navigation.PushAsync(new EndTestPage(userId, test.Id, answers));
         }
 
         protected void OnPropertyChanged(string propName)

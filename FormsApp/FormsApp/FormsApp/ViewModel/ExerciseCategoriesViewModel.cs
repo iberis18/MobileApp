@@ -11,12 +11,13 @@ namespace FormsApp.ViewModel
     //vm окна списка всех упражнений
     internal class ExerciseCategoriesViewModel : INotifyPropertyChanged
     {
-        //private readonly CategoryList allCategories = new CategoryList();
         private Exercise selectedExercise;
         private IEnumerable<Exercise> allCategories = App.Database.GetExercises();
+        private readonly int userId;
 
-        public ExerciseCategoriesViewModel()
+        public ExerciseCategoriesViewModel(int userId)
         {
+            this.userId = userId;
             BackCommand = new Command(Back);
         }
 
@@ -36,9 +37,9 @@ namespace FormsApp.ViewModel
                     OnPropertyChanged("SelectedCategory");
                     switch (value.Id)
                     {
-                        case 1: Navigation.PushAsync(new AttentionExercisePage()); break;
-                        case 2: Navigation.PushAsync(new ThinkingExercisePage(value.Id)); break;
-                        case 3: Navigation.PushAsync(new InstructionMemoryPage(value.Id)); break;
+                        case 1: Navigation.PushAsync(new AttentionExercisePage(userId)); break;
+                        case 2: Navigation.PushAsync(new ThinkingExercisePage(userId, value.Id)); break;
+                        case 3: Navigation.PushAsync(new InstructionMemoryPage(userId, value.Id)); break;
                     }
 
                 }
@@ -49,7 +50,7 @@ namespace FormsApp.ViewModel
 
         public void Back()
         {
-            Navigation.PushAsync(new MenuPage());
+            Navigation.PushAsync(new MenuPage(userId));
         }
 
         protected void OnPropertyChanged(string propName)

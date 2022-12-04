@@ -13,17 +13,20 @@ namespace FormsApp.ViewModel
     {
         public readonly int currentQuestion;
         public readonly Exercise exercise;
+        private readonly int userId;
 
-        public MemoryQuestionsViewModel(int id)
+        public MemoryQuestionsViewModel(int userId, int id)
         {
             exercise = App.Database.GetExercise(id);
+            this.userId = userId;
             currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
             ShowAnswers();
         }
 
-        public MemoryQuestionsViewModel(Exercise ex)
+        public MemoryQuestionsViewModel(int userId, Exercise ex)
         {
             exercise = ex;
+            this.userId = userId;
             currentQuestion = new Random().Next(0, exercise.Questions.Count); //вопрос выбираем случайно
             ShowAnswers();
         }
@@ -39,7 +42,7 @@ namespace FormsApp.ViewModel
         private async void ShowAnswers()
         {
             await Task.Delay(3000);
-            Navigation.PushAsync(new MemoryAnswersPage(exercise, currentQuestion));
+            Navigation.PushAsync(new MemoryAnswersPage(userId, exercise, currentQuestion));
         }
 
         protected void OnPropertyChanged(string propName)

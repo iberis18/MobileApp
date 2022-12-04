@@ -17,17 +17,20 @@ namespace FormsApp.ViewModel
         public int currentQuestion;
         public Exercise exercise;
         private string questionImage, questionText;
+        private readonly int userId;
 
-        public ThinkingExerciseViewModel(int exId)
+        public ThinkingExerciseViewModel(int userId, int exId)
         {
+            this.userId = userId;
             StopCommand = new Command(Stop);
             exercise = App.Database.GetExercise(exId);
             Init();
             AddAnswers();
         }
 
-        public ThinkingExerciseViewModel(Exercise ex)
+        public ThinkingExerciseViewModel(int userId, Exercise ex)
         {
+            this.userId = userId;
             StopCommand = new Command(Stop);
             exercise = ex;
             Init();
@@ -87,7 +90,7 @@ namespace FormsApp.ViewModel
 
         private void Stop()
         {
-            Navigation.PushAsync(new ExerciseCategoriesPage());
+            Navigation.PushAsync(new ExerciseCategoriesPage(userId));
         }
 
         public void NextQuestion()

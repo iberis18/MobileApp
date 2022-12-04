@@ -14,10 +14,12 @@ namespace FormsApp.ViewModel
         private readonly IEnumerable<Test> allTestsByCategory;
         private readonly Category category;
         private Test selectedTest;
+        private readonly int userId;
 
         //получаем список тестов
-        public TestsListByCategoryViewModel(int id)
+        public TestsListByCategoryViewModel(int userId, int id)
         {
+            this.userId = userId;
             BackCommand = new Command(Back);
             category = App.Database.GetCategory(id);
             allTestsByCategory = App.Database.GetTestsByCategory(id);
@@ -44,7 +46,7 @@ namespace FormsApp.ViewModel
                 if (selectedTest == value) return;
                 selectedTest = null;
                 OnPropertyChanged("SelectedTest");
-                Navigation.PushAsync(new TestPage(value.Id));
+                Navigation.PushAsync(new TestPage(userId, value.Id));
             }
         }
 

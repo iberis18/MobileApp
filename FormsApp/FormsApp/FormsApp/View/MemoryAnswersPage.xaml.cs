@@ -8,11 +8,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MemoryAnswersPage : ContentPage
     {
-        public MemoryAnswersPage(Exercise ex, int currentQuestion)
+        public MemoryAnswersPage(int userId, Exercise ex, int currentQuestion)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new MemoryAnswersViewModel(ex, currentQuestion) { Navigation = Navigation };
+            BindingContext = new MemoryAnswersViewModel(userId, ex, currentQuestion) { Navigation = Navigation };
         }
     }
 }

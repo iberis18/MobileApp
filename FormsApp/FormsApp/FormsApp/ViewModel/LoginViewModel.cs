@@ -54,7 +54,7 @@ namespace FormsApp.ViewModel
         public void Login()
         {
             //TODO проверка правильности имени пользователя и пароля
-            Navigation.PushAsync(new MenuPage());
+            Navigation.PushAsync(new MenuPage(1));
         }
 
         //восстановление пароля

@@ -12,11 +12,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AttentionExercisePage : ContentPage
     {
-        public AttentionExercisePage()
+        public AttentionExercisePage(int userId)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new AttentionExerciseViewModel() { Navigation = Navigation };
+            BindingContext = new AttentionExerciseViewModel(userId) { Navigation = Navigation };
         }
     }
 }

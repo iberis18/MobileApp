@@ -16,9 +16,11 @@ namespace FormsApp.ViewModel
         public int[,] array = new int [n,n];
         public int xNumber, yNumber;
         private string question;
+        private readonly int userId;
 
-        public AttentionExerciseViewModel()
+        public AttentionExerciseViewModel(int userId)
         {
+            this.userId = userId;
             StopCommand = new Command(Stop);
             Init();
             AddAnswers();
@@ -51,7 +53,7 @@ namespace FormsApp.ViewModel
 
         public void Stop()
         {
-            Navigation.PushAsync(new ExerciseCategoriesPage());
+            Navigation.PushAsync(new ExerciseCategoriesPage(userId));
         }
 
         //проинициализировать список вариантов ответов 
@@ -103,7 +105,6 @@ namespace FormsApp.ViewModel
 
         public void NextQuestion()
         {
-            //Navigation.PushAsync(new AttentionExercisePage());
             Init();
             AddAnswers();
         }

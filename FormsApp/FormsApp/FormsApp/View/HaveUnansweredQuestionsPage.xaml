@@ -12,12 +12,13 @@
                     <StackLayout VerticalOptions="Center">
 
                         <Label Text="Вы ответили не на все вопросы!" TextColor="White" FontSize="30"
-                               FontAttributes="Bold"
+                               FontAttributes="Bold" Margin="10,0"
                                HorizontalTextAlignment="Center" />
+                        <Label/>
                         <Label Text="Хотите завершить тест?" TextColor="White" FontSize="30" FontAttributes="Bold"
-                               HorizontalTextAlignment="Center" />
+                               HorizontalTextAlignment="Center" Margin="10,0" />
 
-                        <StackLayout Padding="70,40,70,0">
+                        <StackLayout Padding="45,40,45,0">
                             <Button Text="К списку вопросов" Command="{Binding OpenMenuCommand}"
                                     BackgroundColor="#F64C72"
                                     TextColor="White" FontSize="20" FontAttributes="Bold" />

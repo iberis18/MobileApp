@@ -10,12 +10,14 @@ namespace FormsApp.ViewModel
     internal class HelpTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
+        private readonly int userId;
 
-        public HelpTestViewModel(string testName)
+        public HelpTestViewModel(int userId, int id)
         {
             GoToTestCommand = new Command(GoToTest);
             BackCommand = new Command(Back);
-            test = new Test(testName);
+            test = App.Database.GetTest(id);
+            this.userId = userId;
         }
 
         public ICommand GoToTestCommand { get; }
@@ -29,7 +31,7 @@ namespace FormsApp.ViewModel
 
         private void GoToTest()
         {
-            Navigation.PushAsync(new TestPage(test.Name));
+            Navigation.PushAsync(new TestPage(userId, test.Id));
         }
 
         private void Back()

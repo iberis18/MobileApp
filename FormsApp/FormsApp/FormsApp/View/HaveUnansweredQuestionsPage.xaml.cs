@@ -8,11 +8,11 @@ namespace FormsApp.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HaveUnansweredQuestionsPage : ContentPage
     {
-        public HaveUnansweredQuestionsPage(int testId, Dictionary<int, int?> answers)
+        public HaveUnansweredQuestionsPage(int userId, int testId, Dictionary<int, int?> answers)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            BindingContext = new HaveUnansweredQuestionsViewModel(testId, answers) { Navigation = Navigation };
+            BindingContext = new HaveUnansweredQuestionsViewModel(userId, testId, answers) { Navigation = Navigation };
         }
     }
 }

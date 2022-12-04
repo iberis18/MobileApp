@@ -12,10 +12,11 @@ namespace FormsApp.ViewModel
     internal class ResultsViewModel : INotifyPropertyChanged
     {
         private readonly IEnumerable<Result> results;
+        private readonly int userId;
 
-
-        public ResultsViewModel()
+        public ResultsViewModel(int userId)
         {
+            this.userId = userId;
             GoToExercisesCommand = new Command(GoToExercises);
             BackCommand = new Command(Back);
             results = App.Database.GetResults();
@@ -40,7 +41,7 @@ namespace FormsApp.ViewModel
 
         public void GoToExercises()
         {
-            Navigation.PushAsync(new ExerciseCategoriesPage());
+            Navigation.PushAsync(new ExerciseCategoriesPage(userId));
         }
 
         protected void OnPropertyChanged(string propName)

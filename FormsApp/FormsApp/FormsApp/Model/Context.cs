@@ -60,6 +60,7 @@ namespace FormsApp.Model
         {
             Test test = database.Get<Test>(id);
             test.Questions = GetQuestionsByTest(id).ToList();
+            test.Norms = GetNormsByTest(id).ToList();
             return test;
         }
         public IEnumerable<Test> GetTestsByCategory(int id)
@@ -166,6 +167,10 @@ namespace FormsApp.Model
         public Norm GetNorm(int id)
         {
             return database.Get<Norm>(id);
+        }
+        public IEnumerable<Norm> GetNormsByTest(int testId)
+        {
+            return database.Table<Norm>().Where(x => x.TestId == testId).ToList();
         }
         public int DeleteNorm(int id)
         {

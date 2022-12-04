@@ -7,35 +7,39 @@
     <ContentPage.Content>
         <Grid>
             <Path Fill="#1E1F95" Data="M-30 250L500 530L150 800L-30 250Z" />
-            <StackLayout>
-                <ImageButton Source="backButton" Command="{Binding BackCommand}" BackgroundColor="Transparent"
-                             HorizontalOptions="Start" Margin="20,20,0,0" />
-                <Label Text="Ваши результаты" TextColor="White" FontSize="40" FontAttributes="Bold"
-                       HorizontalTextAlignment="Center" Margin="0,10,0,10" />
+            <ScrollView>
                 <StackLayout>
-                    <ListView x:Name="resultsList" ItemsSource="{Binding AllResults}" HasUnevenRows="True">
-                        <ListView.ItemTemplate>
+                    <ImageButton Source="backButton" Command="{Binding BackCommand}" BackgroundColor="Transparent"
+                                 HorizontalOptions="Start" Margin="20,20,0,0" />
+                    <Label Text="Ваши результаты" TextColor="White" FontSize="40" FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" Margin="0,10,0,10" />
+
+                    <StackLayout BindableLayout.ItemsSource="{Binding AllResults}">
+                        <BindableLayout.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell IsEnabled="false">
-                                    <ViewCell.View>
-                                        <StackLayout>
-                                            <Label Text="{Binding .}" TextColor="White" FontSize="20"
-                                                   HorizontalTextAlignment="Start" Margin="15,0,15,0" />
-                                        </StackLayout>
-                                    </ViewCell.View>
-                                </ViewCell>
+                                <Grid HorizontalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Test}" TextColor="White" FontSize="20"
+                                           HorizontalTextAlignment="Start" Margin="15,0,15,0" />
+                                    <Label Grid.Column="1" Text="{Binding Scores}" TextColor="White" FontSize="20"
+                                           HorizontalTextAlignment="Start" Margin="15,0,15,0" />
+                                </Grid>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,30,0,50">
+                        <Label Text="Рекомендации" TextColor="White" FontSize="40" FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding Recommendations}" TextColor="White" FontSize="20" Margin="15,10,15,0" />
+                        <Button Text="К упражнениям" Command="{Binding GoToExercisesCommand}" BackgroundColor="#F64C72"
+                                TextColor="White" FontSize="20" FontAttributes="Bold" Margin="50,40,50,0" />
+                    </StackLayout>
                 </StackLayout>
-                <StackLayout Margin="0,0,0,50">
-                    <Label Text="Рекомендации" TextColor="White" FontSize="40" FontAttributes="Bold"
-                           HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding Recommendations}" TextColor="White" FontSize="20" Margin="15,10,15,0" />
-                    <Button Text="К упражнениям" Command="{Binding GoToExercisesCommand}" BackgroundColor="#F64C72"
-                            TextColor="White" FontSize="20" FontAttributes="Bold" Margin="70,40,70,0" />
-                </StackLayout>
-            </StackLayout>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

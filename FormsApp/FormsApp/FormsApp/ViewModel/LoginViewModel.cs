@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.Model;
 using FormsApp.View;
 using Xamarin.Forms;
 
@@ -8,7 +9,7 @@ namespace FormsApp.ViewModel
     //vm окна входа
     internal class LoginViewModel : INotifyPropertyChanged
     {
-        private string email = "", password = "";
+        private string email = "", password = "", errorMessage = "";
 
         public LoginViewModel()
         {
@@ -47,14 +48,34 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+        public string ErrorMessage
+        {
+            get => errorMessage;
+            set
+            {
+                if (errorMessage != value)
+                {
+                    errorMessage = value;
+                    OnPropertyChanged("ErrorMessage");
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         //вход
         public void Login()
         {
-            //TODO проверка правильности имени пользователя и пароля
-            Navigation.PushAsync(new MenuPage(1));
+            User user = App.Database.GetUserByEmailAndPassword(email, password);
+            if (user != null)
+            {
+                ErrorMessage = "";
+                Navigation.PushAsync(new MenuPage(user.Id));
+            }
+            else
+            {
+                ErrorMessage = "Неверное имя пользователя или пароль! Попробуйте еще раз!";
+            }
         }
 
         //восстановление пароля

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.Model;
 using FormsApp.View;
 using Xamarin.Forms;
 
@@ -8,7 +9,7 @@ namespace FormsApp.ViewModel
     //vm Окна регистрации
     internal class RegistrationViewModel : INotifyPropertyChanged
     {
-        private string email = "", password = "", repeatPassword = "";
+        private string email = "", password = "", repeatPassword = "", errorMessage = "";
 
         public RegistrationViewModel()
         {
@@ -58,14 +59,49 @@ namespace FormsApp.ViewModel
                 }
             }
         }
+        public string ErrorMessage
+        {
+            get => errorMessage;
+            set
+            {
+                if (errorMessage != value)
+                {
+                    errorMessage = value;
+                    OnPropertyChanged("ErrorMessage");
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void Registration()
         {
             //Добавление нового пользователя
-
-            Navigation.PushAsync(new MainPage());
+            if (Password == "" || RepeatPassword == "" || Email == "")
+            {
+                ErrorMessage = "Заполните все поля!";
+                return;
+            }
+            if (Password != RepeatPassword)
+            {
+                ErrorMessage = "Пароли не совпадают!";
+                return;
+            }
+            else
+            {
+                User u = App.Database.GetUserByEmail(Email);
+                if (u != null)
+                {
+                    ErrorMessage = "Данный email уже используется!";
+                    return;
+                }
+                else
+                {
+                    App.Database.SaveUser(new User() { Email = email, Password = password });
+                    Navigation.PushAsync(new MainPage());
+                }
+            }
+            return;
         }
 
         public void Back()

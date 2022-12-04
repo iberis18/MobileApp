@@ -31,6 +31,14 @@ namespace FormsApp.Model
         {
             return database.Get<User>(id);
         }
+        public User GetUserByEmailAndPassword(string email, string password)
+        {
+            return database.Table<User>().FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+        public User GetUserByEmail(string email)
+        {
+            return database.Table<User>().FirstOrDefault(x => x.Email == email);
+        }
         public int DeleteUser(int id)
         {
             return database.Delete<User>(id);
@@ -95,6 +103,14 @@ namespace FormsApp.Model
         public Result GetResult(int id)
         {
             return database.Get<Result>(id);
+        }
+        public IEnumerable<Result> GetResultsByUserId(int userId)
+        {
+            return database.Table<Result>().Where(x => x.UserId == userId).ToList();
+        }
+        public Result GetUserResultByTestId(int userId, int testId)
+        {
+            return database.Table<Result>().FirstOrDefault(x => x.TestId == testId && x.UserId == userId);
         }
         public int DeleteResult(int id)
         {

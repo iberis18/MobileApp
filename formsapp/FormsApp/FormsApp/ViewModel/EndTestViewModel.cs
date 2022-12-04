@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
+using FormsApp.Model;
 using FormsApp.View;
 using Xamarin.Forms;
 
@@ -10,32 +11,48 @@ namespace FormsApp.ViewModel
     internal class EndTestViewModel : INotifyPropertyChanged
     {
         private readonly Dictionary<int, int?> answers; //ответы пользователя
-        private int test;
+        private readonly Test test;
+        private string result = "";
+        private string comment = "";
         private readonly int userId;
+        private int sum = 0;
 
         public EndTestViewModel(int userId, int testId, Dictionary<int, int?> answers)
         {
             this.userId = userId;
             GoToMenuCommand = new Command(GoToMenu);
             this.answers = answers;
-            this.test = testId;
+            this.test = App.Database.GetTest(testId);
+
+            ResultsProcessing();
+            SaveResult();
         }
 
         public ICommand GoToMenuCommand { get; }
         public INavigation Navigation { get; set; }
-        public string Result => "ХХХ баллов";
+        public string Result
+        {
+            get => result;
+            set
+            {
+                if (result != value)
+                {
+                    result = value;
+                    OnPropertyChanged("Result");
+                }
+            }
+        }
 
         public string Comment
         {
-            get
+            get => comment;
+            set
             {
-                var s = "Тут будет выводиться расшифровка результатов. Пока что просто массив ответов:\n";
-                foreach (var x in answers)
-                    if (x.Value != -1 && x.Value != null)
-                        s += "Вопрос №" + x.Key + " — ответ " + x.Value + '\n';
-                    else
-                        s += "Вопрос №" + x.Key + " — нет ответа!" + '\n';
-                return s;
+                if (comment != value)
+                {
+                    comment = value;
+                    OnPropertyChanged("Comment");
+                }
             }
         }
 
@@ -44,6 +61,50 @@ namespace FormsApp.ViewModel
         public void GoToMenu()
         {
             Navigation.PushAsync(new MenuPage(userId));
+        }
+
+        private void ResultsProcessing()
+        {
+            foreach (var x in answers)
+            {
+                if (x.Value != null && x.Value != -1)
+                    if (test.Questions[x.Key].Answers[(int)x.Value].isTrue)
+                        sum++;
+            }
+
+            //результат с учетом числа
+            if (sum % 100 >= 10 && sum % 100 < 20 )
+                Result = sum.ToString() + " баллов";
+            else
+                switch (sum % 10)
+                {
+                    case 1: Result = sum.ToString() + " балл"; break;
+                    case 2: case 3: case 4: Result = sum.ToString() + " балла"; break;
+                    case 5: case 6: case 7: case 8: case 9: case 0: Result = sum.ToString() + " баллов"; break;
+                }
+
+            //сопоставление с нормами (расшифровка)
+            foreach (var x in test.Norms)
+            {
+                if (sum >= x.Min && sum < x.Max)
+                {
+                    Comment = x.Text;
+                    break;
+                }
+            }
+        }
+
+        private void SaveResult()
+        {
+            Result result = App.Database.GetUserResultByTestId(userId, test.Id);
+            if (result == null)
+                App.Database.SaveResult(new Result() {Scores = sum, Text = comment, TestId = test.Id, UserId = userId });
+            else
+            {
+                result.Scores = sum;
+                result.Text = comment;
+                App.Database.SaveResult(result);
+            }
         }
 
         protected void OnPropertyChanged(string propName)

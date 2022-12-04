@@ -11,9 +11,11 @@ namespace FormsApp.ViewModel
     {
         private readonly Dictionary<int, int?> answers; //ответы пользователя
         private int test;
+        private readonly int userId;
 
-        public EndTestViewModel(int testId, Dictionary<int, int?> answers)
+        public EndTestViewModel(int userId, int testId, Dictionary<int, int?> answers)
         {
+            this.userId = userId;
             GoToMenuCommand = new Command(GoToMenu);
             this.answers = answers;
             this.test = testId;
@@ -41,7 +43,7 @@ namespace FormsApp.ViewModel
 
         public void GoToMenu()
         {
-            Navigation.PushAsync(new MenuPage());
+            Navigation.PushAsync(new MenuPage(userId));
         }
 
         protected void OnPropertyChanged(string propName)

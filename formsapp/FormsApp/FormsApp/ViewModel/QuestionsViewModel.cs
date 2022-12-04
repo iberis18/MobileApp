@@ -16,6 +16,7 @@ namespace FormsApp.ViewModel
     {
         private readonly int currentQuestion;
         private readonly Test test;
+        private readonly int userId;
         private readonly Dictionary<int, int?> answers;
         private ObservableCollection<RadioElement> answerTexts = new ObservableCollection<RadioElement>();
         private readonly ObservableCollection<RadioElement> leftAnswerImages = new ObservableCollection<RadioElement>();
@@ -24,32 +25,36 @@ namespace FormsApp.ViewModel
             rightAnswerImages = new ObservableCollection<RadioElement>();
 
         //для первого вопроса. Создаем и инициализируем ответы пользователя
-        public QuestionsViewModel(int testId, int currentQuestion)
+        public QuestionsViewModel(int userId, int testId, int currentQuestion)
         {
             SkipCommand = new Command(Skip);
             AnswerCommand = new Command(Answer);
             OpenMenuCommand = new Command(OpenMenu);
             test = App.Database.GetTest(testId);
+            this.userId = userId;
 
             this.currentQuestion = currentQuestion;
-            AddAnswers();
             answers = new Dictionary<int, int?>();
             for (var i = 0; i < test.Questions.Count; i++)
                 answers[i] = -1;
+
+            AddAnswers();
+            
         }
 
         //для остальных вопросов 
         //хранит предыдущие ответы пользователя
-        public QuestionsViewModel(int testId, int currentQuestion, Dictionary<int, int?> answers)
+        public QuestionsViewModel(int userId, int testId, int currentQuestion, Dictionary<int, int?> answers)
         {
             SkipCommand = new Command(Skip);
             AnswerCommand = new Command(Answer);
             OpenMenuCommand = new Command(OpenMenu);
             test = App.Database.GetTest(testId);
-
+            this.userId = userId;
             this.currentQuestion = currentQuestion;
-            AddAnswers();
             this.answers = answers;
+
+            AddAnswers();
         }
 
 
@@ -128,8 +133,30 @@ namespace FormsApp.ViewModel
         //проверить, существует ли следующий вопрос, или пора завершать тест
         private void NextQuestionOrFinish()
         {
+            //если есть следующий вопрос
             if (currentQuestion < test.Questions.Count - 1)
-                Navigation.PushAsync(new QuestionsPage(test.Id, currentQuestion + 1, answers));
+                //если мы его еще не смотрели
+                if (answers[currentQuestion + 1] == -1)
+                    Navigation.PushAsync(new QuestionsPage(userId, test.Id, currentQuestion + 1, answers));
+
+                //если мы уже смотрели следующий вопрос (он пропущен или отвечен)
+                else
+                {
+                    //Если еще есть не отвеченные вопросы
+                    if (answers.Any(x => x.Value == -1 || x.Value == null))
+                        //ищем следующий пропущенный или не отвеченный
+                        foreach (var x in answers)
+                        {
+                            if (x.Value == null || x.Value == -1)
+                            {
+                                Navigation.PushAsync(new QuestionsPage(userId, test.Id, x.Key, answers));
+                                break;
+                            }
+                        }
+                    else
+                        HaveUnunsweredQuestion();
+                }
+            //если мы на последнем вопросе 
             else
                 HaveUnunsweredQuestion();
         }
@@ -138,15 +165,15 @@ namespace FormsApp.ViewModel
         private void HaveUnunsweredQuestion()
         {
             if (answers.Any(x => x.Value == -1 || x.Value == null))
-                Navigation.PushAsync(new HaveUnansweredQuestionsPage(test.Id, answers));
+                Navigation.PushAsync(new HaveUnansweredQuestionsPage(userId, test.Id, answers));
             else
-                Navigation.PushAsync(new EndTestPage(test.Id, answers));
+                Navigation.PushAsync(new EndTestPage(userId, test.Id, answers));
         }
 
         //открыть список вопросов
         private void OpenMenu()
         {
-            Navigation.PushAsync(new QuestionsMenuPage(test.Id, answers));
+            Navigation.PushAsync(new QuestionsMenuPage(userId, test.Id, answers));
         }
 
         //проинициализировать список вариантов ответов 
@@ -154,17 +181,27 @@ namespace FormsApp.ViewModel
         {
             for (var i = 0; i < test.Questions[currentQuestion].Answers.Count; i += 2)
                 if (test.Questions[currentQuestion].Answers[i].Image != "")
-                    leftAnswerImages.Add(new RadioElement
-                        { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
+                    if (i == answers[currentQuestion])
+                        leftAnswerImages.Add(new RadioElement
+                            { Checked = true, Value = test.Questions[currentQuestion].Answers[i].Image });
+                    else
+                        leftAnswerImages.Add(new RadioElement
+                            { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
 
             for (var i = 1; i < test.Questions[currentQuestion].Answers.Count; i += 2)
                 if (test.Questions[currentQuestion].Answers[i].Image != "")
-                    rightAnswerImages.Add(new RadioElement
-                        { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
+                    if (i == answers[currentQuestion])
+                        rightAnswerImages.Add(new RadioElement
+                            { Checked = true, Value = test.Questions[currentQuestion].Answers[i].Image });
+                    else
+                        rightAnswerImages.Add(new RadioElement
+                            { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Image });
 
-            foreach (var t in test.Questions[currentQuestion].Answers)
-                if (t.Text != "")
-                    answerTexts.Add(new RadioElement { Checked = false, Value = t.Text });
+            for (int i = 0; i < test.Questions[currentQuestion].Answers.Count; i++)
+                if (test.Questions[currentQuestion].Answers[i].Text != "")
+                    answerTexts.Add( answers[currentQuestion] == i
+                        ? new RadioElement { Checked = true, Value = test.Questions[currentQuestion].Answers[i].Text }
+                        : new RadioElement { Checked = false, Value = test.Questions[currentQuestion].Answers[i].Text } );
         }
 
         //найти выбранный вариант ответа и запомнить его

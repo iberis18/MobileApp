@@ -10,12 +10,14 @@ namespace FormsApp.ViewModel
     internal class PreparingForTestViewModel : INotifyPropertyChanged
     {
         private readonly Test test;
+        private readonly int userId;
 
-        public PreparingForTestViewModel(int testId)
+        public PreparingForTestViewModel(int userId, int testId)
         {
             StartCommand = new Command(Start);
             BackCommand = new Command(Back);
             test = App.Database.GetTest(testId);
+            this.userId = userId;
         }
 
         public ICommand StartCommand { get; }
@@ -30,7 +32,7 @@ namespace FormsApp.ViewModel
         //начать тест
         private void Start()
         {
-            Navigation.PushAsync(new QuestionsPage(test.Id, 0));
+            Navigation.PushAsync(new QuestionsPage(userId, test.Id, 0));
         }
 
         private void Back()
